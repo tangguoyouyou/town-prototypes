@@ -1,0 +1,13 @@
+{
+  "read_only": true,
+  "requirements": 25,
+  "pages": 13,
+  "markdown_matches_local": true,
+  "desktop": true,
+  "mobile": true,
+  "document_view": true,
+  "search": true,
+  "screenshots": 30,
+  "errors": [],
+  "failed": []
+}

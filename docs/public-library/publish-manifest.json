@@ -1,0 +1,17 @@
+{
+  "name": "商品公共库与基础资料公共ID",
+  "version": "V1.0",
+  "mode": "read-only",
+  "source_files_sha256": {
+    "需求源.json": "a61a0bbe01dd905e24b6103b5bc136a37e4bd00278824e9566c4ed685dd726dd",
+    "文档章节.json": "8341864c8ecd900cf07aa89142f06b611de9934d09d79774a8ca98491840471d",
+    "business.js": "11d02efc4afdca6ed29957d74f8bb0f69d1f9db7380dd4673153b8e9560f33d3",
+    "attributes.js": "2e3af7b9340744d5d4aff20a8b409da0a02824d9ff5e8588e5a956ab3e1b28b5",
+    "quick_import.js": "451ddb6c70960f19e7c01297fea35a93c3dd82f448aedbe2ca7c07f7c5f5fb16",
+    "addons_store.js": "dbca41fc1c18cd64c5e1c12b64f1f9790fd919bbc2905dbc994022fcfabf90b8",
+    "open_platform.js": "9132bc59eba6388eb4e312a46dabf0b9defe860d4e7423a6e93a34a41a6fe864",
+    "tags.js": "7a8a0de98df5f9b69fdfff78a893c5f4d7c6f9fb37398b4a62bffc1e748b39ca",
+    "business.css": "9d1745a0b56c9676c8572ae14f40a591de734ed91a0b9514eeb6430613217a7e",
+    "build.py": "19dda95c2ffacf2e4af2655cbd22f283ab10783556351777623418eb7a8377b8"
+  }
+}
