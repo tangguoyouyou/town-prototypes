@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-13 16:21:36",
+  "change": "模板管理空态、新增模板及模板列表入口",
+  "status": "passed",
+  "scope": "本地交互原型；新建模板保持现有逻辑，不据截图定义数量上限、命名校验或复制/删除新规则；真实模板接口和持久化未联调。",
+  "checks": [
+    "按参考图展示无模板两步说明、新增模板名称/描述及取消确认；取消不创建，保存后出现模板列表及四个原有操作入口；更新前旧模板不加载",
+    "管理商品进入现有商品管理界面，新模板无商品；实际创建两个模板并选同一公共商品，各模板已添加判断独立；返回列表再进入保留当前模板引用",
+    "侧栏模板入口进入模板目录，原型热点与需求反向定位、PRD同源一致；新增模板规则仅写保持现有逻辑",
+    "615px新增模板弹窗字段及按钮可见，无弹窗横向溢出"
+  ],
+  "screenshots": [
+    "assets/验证截图/模板管理-无模板空态.jpg",
+    "assets/验证截图/模板管理-新增模板弹窗.jpg",
+    "assets/验证截图/模板管理-模板列表.jpg",
+    "assets/验证截图/模板管理-新增弹窗窄屏.jpg",
+    "assets/验证截图/模板商品列表核对.jpg",
+    "assets/验证截图/模板列表底部核对.jpg"
+  ],
+  "pageErrors": [],
+  "baselinePreservation": {
+    "backup": "历史版本/本地编辑_2026-11-13_160537_702865/完整基线.zip",
+    "changedRequirements": [
+      "PUB-TPL-001"
+    ],
+    "unchangedRequirements": 25,
+    "requirements": 26,
+    "pages": 15,
+    "ends": 4,
+    "userSaveAt": "2026-11-13 13:36:31",
+    "userEditStateUnchanged": true,
+    "publicationRecordsUnchanged": true,
+    "canonicalMarkdownMatchesEmbedded": true
+  },
+  "regressions": [
+    "verification_template_picker.json",
+    "verification_task_records.json",
+    "verification_home_guide.json"
+  ],
+  "visualReview": "已目视检查模板空态、新增模板弹窗、模板列表、615px弹窗和更新后的商品管理详情；字段、操作及返回入口清晰，无遮挡。新增4张补充图，刷新2张详情图。",
+  "archiveLinks": {
+    "checked": 351,
+    "broken": []
+  }
+}

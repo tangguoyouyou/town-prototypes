@@ -3,15 +3,16 @@
   "version": "V1.0",
   "mode": "read-only",
   "source_files_sha256": {
-    "需求源.json": "a61a0bbe01dd905e24b6103b5bc136a37e4bd00278824e9566c4ed685dd726dd",
-    "文档章节.json": "8341864c8ecd900cf07aa89142f06b611de9934d09d79774a8ca98491840471d",
-    "business.js": "11d02efc4afdca6ed29957d74f8bb0f69d1f9db7380dd4673153b8e9560f33d3",
+    "需求源.json": "cc03b7b3d76fc4a8d02a965dc2d665e122aa93fa0d5df9d0ce65b9c4ae220c43",
+    "文档章节.json": "54595f7770c6597d9e49c306ede677215645e18d25cca99b10142fdbbf679bae",
+    "business.js": "ba65ce5bf39b939a47fc416ee3cc22c7c121349c67460a66566c488a61bc9ad8",
     "attributes.js": "2e3af7b9340744d5d4aff20a8b409da0a02824d9ff5e8588e5a956ab3e1b28b5",
-    "quick_import.js": "451ddb6c70960f19e7c01297fea35a93c3dd82f448aedbe2ca7c07f7c5f5fb16",
-    "addons_store.js": "dbca41fc1c18cd64c5e1c12b64f1f9790fd919bbc2905dbc994022fcfabf90b8",
-    "open_platform.js": "9132bc59eba6388eb4e312a46dabf0b9defe860d4e7423a6e93a34a41a6fe864",
-    "tags.js": "7a8a0de98df5f9b69fdfff78a893c5f4d7c6f9fb37398b4a62bffc1e748b39ca",
-    "business.css": "9d1745a0b56c9676c8572ae14f40a591de734ed91a0b9514eeb6430613217a7e",
-    "build.py": "19dda95c2ffacf2e4af2655cbd22f283ab10783556351777623418eb7a8377b8"
+    "quick_import.js": "60d3ca6cf00382e2b09c8d322178cf894d7172d8ff4f438ef02f475c8b7a590d",
+    "addons_store.js": "f2d6acadea9b2155657b539281933ba39782e7e0ac29556108f830fce37f087b",
+    "open_platform.js": "83adc648d54ca5ada559a0d273c79d1bf2053e731b750d1b7803be43cd7d1b45",
+    "tags.js": "07b9ef5901d78d14d1ddbce5fd7a42a6b447bd4685e757779112f4b6e23ca56b",
+    "onboarding.js": "f85e7e1aa83612780642236d34b9dcd5b5d0d993964ffe37142d62f1f4c8d6c4",
+    "business.css": "87bc96cfdec163bf72a6f4a981986a48da16e02b84384f6f0857800f693d7603",
+    "build.py": "c5e8ab76c1aa22fd96e57f5053f9cb3ef4c5bb62d8f9a1fccf5988610c84ae01"
   }
 }

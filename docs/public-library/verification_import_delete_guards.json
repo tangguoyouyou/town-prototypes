@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-13 17:17:01",
+  "change": "快捷导入跳过总部缺失商品公共ID及公共商品删除门店存在性校验",
+  "status": "passed",
+  "scope": "本地原型实际交互及注入边界样本；真实数据库、门店查询接口、服务端事务/并发及持久化未联调。",
+  "checks": [
+    "来源商品有公共ID但当前连锁公共库无同ID时跳过，商品/依赖分类属性小料/序号均不新增，来源门店不回写；结果计入跳过数",
+    "混选时已有同ID/总部缺失ID分别跳过，无公共ID商品继续按原规则逐件新建；提交时重新核对，公共ID不按名称或数值归并",
+    "公共库单项删除按同公共ID检查运营中未删除关联门店，存在即拦截且数据不变；门店商品下架/禁用、账号无管理权限不绕过存在性校验",
+    "非运营中、已删除、解除关联、其他连锁均不误拦截；同名/门店本地ID或123与000123不混用。放行后确认删除公共库及全部模板引用，门店商品保持不变",
+    "删除最终确认时复核，确认前门店新增同ID商品会阻断；批量删除不能绕过存在保护；模板内移除仅解除当前引用，公共库及门店商品保留",
+    "既有同步锁保留；615px快捷导入说明可读，PRD与评审同源，无页面脚本错误"
+  ],
+  "screenshots": [
+    "assets/验证截图/快捷导入-公共ID跳过规则.jpg",
+    "assets/验证截图/快捷导入-未知公共ID跳过结果.jpg",
+    "assets/验证截图/公共库删除-关联门店存在拦截.jpg",
+    "assets/验证截图/快捷导入-跳过规则窄屏.jpg"
+  ],
+  "pageErrors": [],
+  "baselinePreservation": {
+    "backup": "历史版本/本地编辑_2026-11-13_171331_024049/完整基线.zip",
+    "userSavePatch": "历史版本/本地编辑_2026-11-13_171331_024049/用户后续保存_171350.json",
+    "userSavedRevisionVerified": true,
+    "userSaveAt": "2026-11-13 17:13:50",
+    "businessChangedRequirements": [
+      "PUB-PROD-003",
+      "PUB-IMPORT-002"
+    ],
+    "unchangedRequirementsFromUserSavedBaseline": 24,
+    "requirements": 26,
+    "pages": 15,
+    "ends": 4,
+    "userEditStateUnchanged": true,
+    "publicationRecordsUnchanged": true,
+    "canonicalMarkdownMatchesEmbedded": true
+  },
+  "visualReview": "已目视检查快捷导入新版顶部说明、未知ID跳过结果、公共库删除拦截、615px说明及刷新主图；规则及提示可读，无弹窗说明横向溢出。",
+  "regressions": [
+    "verify_quick_import.cjs：门店资格、套餐/独立促销排除、三栏联选、提交复核及不回写来源通过；刷新01主图。"
+  ],
+  "archiveLinks": {
+    "checked": 372,
+    "broken": []
+  }
+}

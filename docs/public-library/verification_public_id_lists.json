@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-13 15:29:21",
+  "change": "公共库分类/小料/推荐标签管理仅查询含公共ID资料",
+  "status": "passed",
+  "scope": "离线原型混合数据、查询及选择范围核对；真实服务端查询与数据库未实现或联调。",
+  "checks": [
+    "分类管理：缺失/NULL/空串/空白及同名无ID记录均不显示；切页保持过滤，前导零ID原值保留，全部无ID时为空态；615px核对，查询未删除或修改无ID原始资料",
+    "小料管理：缺失/NULL/空串/空白及同名无ID记录均不显示；切页保持过滤，前导零ID原值保留，全部无ID时为空态；615px核对，查询未删除或修改无ID原始资料",
+    "推荐标签管理：缺失/NULL/空串/空白及同名无ID记录均不显示；切页保持过滤，前导零ID原值保留，全部无ID时为空态；615px核对，查询未删除或修改无ID原始资料",
+    "仅连锁店总部三个公共库列表应用过滤；浏览期间门店全部数据保持不变，门店分类/小料/推荐标签中的无公共ID记录继续保留。单门店真实查询接口和列表UI未联调，不将总部过滤套用至单门店。分类总数/勾选数/全选/批量删除确认均限定含公共ID资料；小料搜索无ID名称为空、同名仅返回有ID记录，重置不带出无ID资料"
+  ],
+  "screenshots": [
+    "11-分类管理批量删除.png",
+    "19-小料库公共ID列表.png",
+    "24-推荐标签公共ID列表.png"
+  ],
+  "pageErrors": [],
+  "baselinePreservation": {
+    "backup": "历史版本/本地编辑_2026-11-13_152231_360135/完整基线.zip",
+    "changedRequirements": [
+      "PUB-CAT-001",
+      "PUB-ADDON-001",
+      "PUB-TAG-001"
+    ],
+    "unchangedRequirements": 23,
+    "requirements": 26,
+    "pages": 14,
+    "ends": 4,
+    "userSaveAt": "2026-11-13 13:36:31",
+    "userEditStateUnchanged": true,
+    "publicationRecordsUnchanged": true,
+    "canonicalMarkdownMatchesEmbedded": true
+  },
+  "visualReview": "三张总部管理列表截图已刷新并目视检查：列表正常显示公共ID及原有操作，分类父子层级、数量保留，小料查询与标签列表布局保持；混入的无ID记录未出现。",
+  "archiveLinks": {
+    "checked": 323,
+    "broken": []
+  }
+}
