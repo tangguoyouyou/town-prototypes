@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-13 13:40:00",
+  "date": "2026-11-16 14:55:13",
   "change": "商品初始化作为分类/属性/小料初始化强制前置，先清理商品才可清理小料",
   "scope": "离线原型；真实服务端商品初始化完成状态、接口与持久化未联调",
   "status": "passed",
@@ -18,24 +18,5 @@
     "07-小料初始化引用预检.png",
     "门店初始化-顺序提示窄屏.jpg"
   ],
-  "pageErrors": [],
-  "visualReview": "五张更新截图已逐张目视核对；小料阻断提示及615px布局可读，仅有返回按钮；分类/属性与初始化选择页说明同步。",
-  "baselinePreservation": {
-    "backup": "历史版本/本地编辑_2026-11-13_133726_650630/完整基线.zip",
-    "changedRequirements": [
-      "PUB-INIT-001"
-    ],
-    "unchangedRequirements": 24,
-    "requirements": 25,
-    "pages": 13,
-    "ends": 4,
-    "userSaveAt": "2026-11-13 13:36:31",
-    "userEditStateUnchanged": true,
-    "publicationRecordsUnchanged": true,
-    "canonicalMarkdownMatchesEmbedded": true
-  },
-  "archiveLinks": {
-    "checked": 239,
-    "broken": []
-  }
+  "pageErrors": []
 }
