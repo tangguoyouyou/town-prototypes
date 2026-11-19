@@ -5,23 +5,23 @@
   "mode": "read-only",
   "slug": "public-library-20261116",
   "files_sha256": {
-    "index.html": "4c37632eae006d429925a34e4e345587a8ae9de071240b1051173a4fc26409a4",
-    "商品公共库与基础资料公共ID_PRD_V1.0.md": "29787d816def7601a020757eab0a1bce982d01c5472f5c6fc407615a2171ebf6",
-    "商品公共库与基础资料公共ID_联动评审.html": "4c37632eae006d429925a34e4e345587a8ae9de071240b1051173a4fc26409a4"
+    "index.html": "640d429bad69acb32f4f592a8be21ceb271f53a7abe58a7d48f1580da76c1b52",
+    "商品公共库与基础资料公共ID_PRD_V1.0.md": "80f020a057c074adb79268614fe51c0d29f352718e1e6c6611a7792e79a32b16",
+    "商品公共库与基础资料公共ID_联动评审.html": "640d429bad69acb32f4f592a8be21ceb271f53a7abe58a7d48f1580da76c1b52"
   },
   "source_files_sha256": {
-    "需求源.json": "95dec2de88963a847da81455d44304018b71aabf5440812e8f62efa6c73dee7d",
-    "评审模板.html": "5183737afb26738ed5c037fbd9c753c5a06fd54e43ed968f04c261ed5ed622a2",
+    "需求源.json": "8fdbcf287400a0308f56839b8dcb18a7a25d0aab4dfbd36f529e27797879d816",
+    "评审模板.html": "01037782e1d10796706f6b901d9f7808786006115e5bf5c359c55d444f153023",
     "build.mjs": "f1c9b65034f838f04343a19a6704fd5c8f57b344b22a31f1f33a8de6c7016bae",
     "tools/review_build.mjs": "74c50da4f82c33df397223a111a6e3e64d8ee5c5591f6bfd4c8b358890f8f322",
     "tools/requirement_ids.json": "00ffbb288a148971f6ad0ab218a5be7cf85d1f3df2b4b613f521917265f3e804",
-    "business.js": "5b61191209590bfc14655a51c2d510b1903b1189779669ce995f981d1db52007",
+    "business.js": "85a30ecfed5f3c04d373bf14550a14a548b2c731f456aa508a610df2383f65e9",
     "attributes.js": "71ecf32582826cf9693d9e5cce2eca8acf960d0235acb705e7559e5dd4f5dd33",
     "quick_import.js": "6798595f5a21459679021205089ba6e9e6ee67bf66b42b9ba24eb0a9a41bd10f",
     "addons_store.js": "4e1da93d93d0c00ec697d19464e19629330a2f8214a3a38c5129e8822e7399ce",
     "open_platform.js": "364775c73e520b5c86cf8e1c70ea86d4c03a2496e8baa5e7c22e6f2051648db7",
     "tags.js": "4d3e566fa9b0b684e460c2d08c42b126e52c585b644b01c1563157cc50d5672e",
     "onboarding.js": "aa15061db9c11014dc60e1ec3bfdb74d7b3ccb24b07fb494ff8bc4a3b85d5339",
-    "business.css": "d2264e39bab34e33912cdc5fdff9cd082b710a3cc3d4bcc25062e3f6e0d323db"
+    "business.css": "e8aa05954a96ceff0dcf32867efcc884b22e640681f79e938eca3e7c4d035dc8"
   }
 }
