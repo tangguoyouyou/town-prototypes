@@ -5,8 +5,8 @@
   "mode": "read-only",
   "slug": "rider-town-20261120",
   "files_sha256": {
-    "index.html": "01509e4618c8256279b0d710903b1a28d4f3c547327468f4b0c0c6f4c01a0c02",
-    "审核中骑手修改小镇归属_联动评审.html": "01509e4618c8256279b0d710903b1a28d4f3c547327468f4b0c0c6f4c01a0c02",
+    "index.html": "259ffe0e723acd29c3193f4defab26724132b76404ac0ebc77c5b6a1cf52aaaa",
+    "审核中骑手修改小镇归属_联动评审.html": "259ffe0e723acd29c3193f4defab26724132b76404ac0ebc77c5b6a1cf52aaaa",
     "审核中骑手修改小镇归属_PRD_V1.0.md": "0ccd3a8e5aed460465a5a92341e9d27bfdfd82509b1b88799e860b9485860dca"
   },
   "source_files_sha256": {
@@ -17,6 +17,6 @@
     "业务事件.js": "7b3f43486ccc0ff3d08247d6983f280ca5c8c1475c1521c5095122dfbc600846",
     "build.mjs": "315ddbb4987913b3f21e9d17db1ad24e59b8633b47ef1a1302e82191b110c8ea",
     "tools/review_build.mjs": "7445b2b1c69cc50b9f3d9ce98e078b66ee55ae0c7d450732b72dd48b316e0d86",
-    "tools/publish_pages.mjs": "5a1515338a52da93a6c83ecad0af6cc285b6b4363439aadda35a75cbe7531c44"
+    "tools/publish_pages.mjs": "e4cd61308fe215d9164af82e306ca3f85abf9de128e54e5165c8c16ca8dcf925"
   }
 }
