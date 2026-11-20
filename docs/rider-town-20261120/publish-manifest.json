@@ -5,18 +5,18 @@
   "mode": "read-only",
   "slug": "rider-town-20261120",
   "files_sha256": {
-    "index.html": "259ffe0e723acd29c3193f4defab26724132b76404ac0ebc77c5b6a1cf52aaaa",
-    "审核中骑手修改小镇归属_联动评审.html": "259ffe0e723acd29c3193f4defab26724132b76404ac0ebc77c5b6a1cf52aaaa",
-    "审核中骑手修改小镇归属_PRD_V1.0.md": "0ccd3a8e5aed460465a5a92341e9d27bfdfd82509b1b88799e860b9485860dca"
+    "index.html": "7ae85e81f9b545cb20bd7583b59ace2d6d094bf51de773124ab48ca6324d14e5",
+    "审核中骑手修改小镇归属_联动评审.html": "7ae85e81f9b545cb20bd7583b59ace2d6d094bf51de773124ab48ca6324d14e5",
+    "审核中骑手修改小镇归属_PRD_V1.0.md": "083b5a4c3e15e38265fe1fab47cfde5f7e98e5826bc3ccc19bc650bf0a5a7a0c"
   },
   "source_files_sha256": {
-    "需求源.json": "d1b81a76f63494bbefe41494055ea32ff9cd13e4fe481e228fd68b5eb314210c",
-    "评审模板.html": "92f22b9e4c7f28f1f1c0f10dd17eac39fd7de7f59f0708e48cb375362e0fd7b1",
+    "需求源.json": "6abd6240dd6aa3a91a702055c90bc8282a946de10c17aefb15c3baeb0f82c33e",
+    "评审模板.html": "ad431b5965b1df9a08b33a03646bb96070e4a255145db27b0852d9c086955ab5",
     "原型样式.css": "b168b09eee8836a6d11857452b45290321ea54a7202ff6204cf0c8aa8629ace3",
     "业务演示.js": "226a65ffdb1afdd9e060ff00c02ea2073367ae7261dd2637d6dba2152f631291",
     "业务事件.js": "7b3f43486ccc0ff3d08247d6983f280ca5c8c1475c1521c5095122dfbc600846",
     "build.mjs": "315ddbb4987913b3f21e9d17db1ad24e59b8633b47ef1a1302e82191b110c8ea",
-    "tools/review_build.mjs": "7445b2b1c69cc50b9f3d9ce98e078b66ee55ae0c7d450732b72dd48b316e0d86",
+    "tools/review_build.mjs": "1ccdcc7f13050c06bb71820c5ec27519c8488ed3131d5df148536eec10baa5a6",
     "tools/publish_pages.mjs": "e4cd61308fe215d9164af82e306ca3f85abf9de128e54e5165c8c16ca8dcf925"
   }
 }
