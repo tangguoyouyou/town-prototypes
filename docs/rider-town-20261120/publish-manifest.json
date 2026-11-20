@@ -1,0 +1,22 @@
+{
+  "name": "审核中骑手修改小镇归属",
+  "source_identity": "审核中骑手修改小镇归属_2026-11-20",
+  "version": "V1.0",
+  "mode": "read-only",
+  "slug": "rider-town-20261120",
+  "files_sha256": {
+    "index.html": "01509e4618c8256279b0d710903b1a28d4f3c547327468f4b0c0c6f4c01a0c02",
+    "审核中骑手修改小镇归属_联动评审.html": "01509e4618c8256279b0d710903b1a28d4f3c547327468f4b0c0c6f4c01a0c02",
+    "审核中骑手修改小镇归属_PRD_V1.0.md": "0ccd3a8e5aed460465a5a92341e9d27bfdfd82509b1b88799e860b9485860dca"
+  },
+  "source_files_sha256": {
+    "需求源.json": "d1b81a76f63494bbefe41494055ea32ff9cd13e4fe481e228fd68b5eb314210c",
+    "评审模板.html": "92f22b9e4c7f28f1f1c0f10dd17eac39fd7de7f59f0708e48cb375362e0fd7b1",
+    "原型样式.css": "b168b09eee8836a6d11857452b45290321ea54a7202ff6204cf0c8aa8629ace3",
+    "业务演示.js": "226a65ffdb1afdd9e060ff00c02ea2073367ae7261dd2637d6dba2152f631291",
+    "业务事件.js": "7b3f43486ccc0ff3d08247d6983f280ca5c8c1475c1521c5095122dfbc600846",
+    "build.mjs": "315ddbb4987913b3f21e9d17db1ad24e59b8633b47ef1a1302e82191b110c8ea",
+    "tools/review_build.mjs": "7445b2b1c69cc50b9f3d9ce98e078b66ee55ae0c7d450732b72dd48b316e0d86",
+    "tools/publish_pages.mjs": "5a1515338a52da93a6c83ecad0af6cc285b6b4363439aadda35a75cbe7531c44"
+  }
+}

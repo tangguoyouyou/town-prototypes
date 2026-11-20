@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>审核中骑手修改小镇归属 · 联动评审</title>
+<style>
+:root{--rv-brand:#ff6b20;--rv-soft:#fff3eb;--rv-ink:#252c38;--rv-muted:#78818f;--rv-line:#e6e8ed;--rv-bg:#f2f3f6}
+*{box-sizing:border-box}body{margin:0;color:var(--rv-ink);background:var(--rv-bg);font:14px/1.65 "Microsoft YaHei",sans-serif}button,input,select{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed}button:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:3px solid #2563eb;outline-offset:3px}button{border:1px solid var(--rv-line);border-radius:7px;padding:7px 13px;background:#fff;color:inherit}h1,h2,h3,p{margin:0}.rv-top{height:78px;display:flex;gap:14px;align-items:center;padding:0 26px;background:#fff;border-bottom:1px solid var(--rv-line)}.rv-logo{background:var(--rv-brand);color:#fff;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-weight:800}.rv-top h1{font-size:17px}.rv-sub{color:var(--rv-muted);font-size:12px}.rv-status{margin-left:auto;border:1px solid #fed5b9;background:var(--rv-soft);color:#b44b16;border-radius:20px;padding:4px 12px;font-size:12px}.rv-toolbar{display:flex;gap:14px;align-items:center;padding:12px 26px;background:#fff;border-bottom:1px solid var(--rv-line);min-height:64px}.rv-tabs{display:flex;gap:6px;flex-wrap:wrap}.rv-tabs button{border-color:transparent;background:transparent;color:#626b79}.rv-tabs button[aria-pressed=true]{color:#cf5318;background:var(--rv-soft);font-weight:bold}.rv-tools{display:flex;align-items:center;gap:12px;margin-left:auto;white-space:nowrap;font-size:12px;color:var(--rv-muted)}.rv-tools label{cursor:pointer;display:flex;gap:5px;align-items:center}.rv-workspace{display:grid;grid-template-columns:minmax(0,1fr) 390px;height:calc(100dvh - 142px)}.rv-canvas,.rv-docs{overflow:auto;scroll-behavior:smooth}.rv-canvas{padding:24px 30px 50px}.rv-docs{border-left:1px solid #f1d5b9;background:#fffbf2;padding:20px}.rv-intro{display:flex;justify-content:space-between;gap:16px;margin-bottom:20px;align-items:center}.rv-intro h2{font-size:16px}.rv-pill{font-size:11px;border-radius:4px;padding:3px 7px;background:#fff;color:#7b818c}.rv-section{margin-bottom:30px;scroll-margin-top:20px}.rv-section-title{display:flex;align-items:center;gap:9px;font-weight:bold;margin-bottom:12px;font-size:13px}.rv-square{width:23px;height:23px;display:grid;place-items:center;background:var(--rv-brand);color:#fff;border-radius:5px;font-size:12px}.rv-path{font-size:11px;font-weight:normal;color:var(--rv-muted)}.rv-stage{background:#fff;border:1px solid var(--rv-line);border-radius:12px;padding:24px;box-shadow:0 2px 6px #242e4003}.rv-stage.mobile{padding:20px;background:#e9ecf0}.rv-note{border:1px solid #ffd7bc;border-radius:6px;padding:10px 13px;color:#a05228;background:#fffaf6;font-size:12px;margin-bottom:20px}.rv-docs h2{font-size:16px}.rv-doc-intro{font-size:12px;color:#916b45;margin:8px 0 14px}.rv-search{width:100%;border:1px solid #ecd6bb;background:#fff;border-radius:7px;padding:9px 11px;outline:none}.rv-count{font-size:11px;color:#917a61;margin:10px 0}.rv-rule{border:1px solid #eddcc2;border-radius:10px;padding:15px;background:#fffdf7;margin-bottom:12px;scroll-margin:12px;transition:border-color .15s,box-shadow .15s}.rv-rule.selected{border-color:var(--rv-brand);box-shadow:0 0 0 3px #ff6b2014;background:#fff}.rv-rule-meta{font-size:10px;color:#a5825d;letter-spacing:.2px;margin:9px 0 7px;overflow-wrap:anywhere}.rv-rule-title{display:flex;align-items:center;text-align:left;gap:8px;font-weight:bold;font-size:13px;border:0;background:none;padding:0;width:100%}.rv-number{border-radius:50%;min-width:22px;height:22px;background:var(--rv-brand);color:#fff;display:inline-grid;place-items:center;font-size:11px}.rv-rule p,.rv-rule li{font-size:12px;color:#6f6252}.rv-rule ul{margin:5px 0 10px;padding-left:18px}.rv-rule h3{font-size:11px;color:#a05422;margin-top:12px}.rv-rule-footer{display:flex;justify-content:space-between;align-items:center;margin-top:13px}.rv-rule-footer button{font-size:11px;color:#c45b26;border-color:#f5dbc8;padding:4px 8px}.rv-rule-footer a{font-size:11px;color:#a06c45}.rv-shared{margin-top:20px;padding:14px;border:1px dashed #e4c9a5;border-radius:8px;font-size:12px;color:#886849}.rv-shared summary{cursor:pointer;font-weight:bold}.rv-shared p{margin-top:8px}.rv-empty{padding:25px 8px;color:#947b60;font-size:13px}.rv-hotspot{position:relative;border:1px dashed #f9c9a5;border-radius:7px;transition:background .15s;scroll-margin:24px}.rv-hotspot:hover{background:#fff8f1}.rv-hotspot.rv-selected{outline:2px solid var(--rv-brand);outline-offset:2px;background:#fff6ee}.rv-marker{position:absolute;right:-11px;top:50%;transform:translateY(-50%);width:23px;height:23px;border:2px solid #fff;border-radius:50%;padding:0;color:#fff;background:var(--rv-brand);font-size:11px;line-height:19px;box-shadow:0 1px 4px #df6b2433;z-index:2}.rv-no-markers .rv-marker{display:none}.rv-no-markers .rv-hotspot{border-color:transparent}.rv-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#253041;color:#fff;border-radius:8px;padding:11px 22px;max-width:90vw;z-index:50;box-shadow:0 6px 25px #0002;font-size:13px}.rv-toast:empty{display:none}.rv-help{margin-top:12px;font-size:11px;color:var(--rv-muted)}
+/* 示例业务区域。新项目可在这些位置沿用已有移动端／后台组件。 */
+.demo-tabs{display:flex;gap:30px;border-bottom:1px solid var(--rv-line);padding-bottom:13px;font-size:12px;color:#808897;margin-bottom:20px}.demo-tabs b{color:var(--rv-brand)}.demo-form{max-width:760px;margin:0 auto}.demo-row{display:flex;align-items:center;gap:20px;min-height:52px;padding:10px 22px;margin:4px 0}.demo-label{width:110px;text-align:right;font-size:13px}.demo-row label{font-size:13px;display:flex;align-items:center;gap:6px}.demo-row input{accent-color:var(--rv-brand)}.demo-new{font-size:10px;color:var(--rv-brand);border:1px solid #ffd5ba;border-radius:4px;padding:1px 5px}.demo-footer{display:flex;gap:12px;margin:30px 0 5px 152px}.demo-primary{border-color:var(--rv-brand);background:var(--rv-brand);color:#fff;min-width:85px}.demo-scenarios{display:flex;gap:8px;align-items:center;font-size:12px;flex-wrap:wrap;margin-bottom:16px}.demo-scenarios select{border:1px solid var(--rv-line);border-radius:6px;padding:6px;background:#fff}.demo-phones{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}.demo-phone-wrap{width:280px;max-width:100%}.demo-phone-label{font-size:11px;color:#68717f;margin-bottom:8px}.demo-phone{background:#fff;border:5px solid #fff;border-radius:24px;box-shadow:0 8px 24px #2e374714;overflow:hidden;min-height:355px}.demo-status{display:flex;justify-content:space-between;padding:8px 13px;font-size:10px}.demo-mobile-head{background:var(--rv-brand);color:#fff;padding:20px 13px 28px;font-size:20px;font-weight:bold}.demo-shop{margin:16px 10px;padding:15px 12px}.demo-shop-title{font-weight:bold;margin-bottom:8px}.demo-tags{display:flex;gap:6px;font-size:10px;align-items:center}.demo-tag{color:#21865f;background:#eaf8ef;border-radius:4px;padding:2px 5px}.demo-tag.off{color:#9298a3;background:#f0f1f4}.demo-desc{font-size:11px;color:#8c939e;margin-top:10px}.demo-entry{padding:13px 12px;margin:16px 10px;font-size:13px;display:flex;align-items:center;gap:8px}.demo-entry button:first-child{border:0;background:none;padding:0;text-align:left;flex:1;color:#424c5a}.demo-entry button:disabled{color:#a0a6af}.demo-player{height:175px;background:#e3e8eb;border-radius:9px;margin:12px;display:grid;place-items:center;color:#6c7884;text-align:center;font-size:12px;padding:15px}.demo-player.playing{background:#e8f1ea;color:#51775b}.demo-back{font-size:12px;margin:5px 12px}.demo-player-title{text-align:center;font-size:14px;border-bottom:1px solid #eee;padding:10px}.demo-phone .rv-marker{right:-5px}
+@media(min-width:1600px){.rv-workspace{grid-template-columns:minmax(0,1fr) 430px}.rv-canvas{padding-left:45px;padding-right:45px}}
+@media(max-width:1050px){.rv-workspace{grid-template-columns:minmax(0,1fr) 335px}.rv-canvas{padding:20px 18px}.rv-docs{padding:16px}.rv-status{display:none}.rv-stage{padding:18px 14px}}
+@media(max-width:760px){.rv-top{height:auto;min-height:78px;padding:14px 16px}.rv-top h1{font-size:15px}.rv-toolbar{padding:10px 12px;flex-wrap:wrap;gap:8px}.rv-tools{margin-left:0}.rv-workspace{display:block;height:auto}.rv-canvas,.rv-docs{overflow:visible}.rv-docs{border-left:0;border-top:1px solid #f1d5b9}.rv-intro{align-items:flex-start}.rv-path{display:none}.demo-row{gap:9px;padding:10px}.demo-label{width:100px}.demo-footer{margin-left:10px}.rv-stage.mobile{padding:15px}.rv-rule{scroll-margin:15px}}
+@media(prefers-reduced-motion:reduce){.rv-canvas,.rv-docs{scroll-behavior:auto}*{transition:none!important}}
+@media print{.rv-workspace{display:block;height:auto}.rv-canvas,.rv-docs{overflow:visible}.rv-toolbar,.rv-marker,.rv-toast{display:none}.rv-rule,.rv-stage{break-inside:avoid}.rv-docs{border:0}}
+/* 评审壳布局。业务样式保留在原模板中。 */
+body{height:100dvh;display:flex;flex-direction:column;overflow:hidden}
+.rv-top{height:auto;min-height:68px;flex-shrink:0;padding:12px 24px}.rv-top h1{font-size:17px}.rv-toolbar{min-height:56px;flex-shrink:0;padding:8px 24px;flex-wrap:wrap}.rv-tools{gap:12px}.rv-tabs{gap:4px}.rv-tabs button{padding:6px 12px}.rv-context{display:flex;gap:16px;align-items:center;padding:9px 24px;background:#fafbfc;border-bottom:1px solid var(--rv-line);flex-shrink:0;font-size:12px;flex-wrap:wrap}.rv-page-picker{display:flex;gap:8px;align-items:center;min-width:0;white-space:nowrap}.rv-page-picker select{max-width:320px;min-width:160px}.rv-context select,.rv-jump-label select{padding:6px 9px;border:1px solid var(--rv-line);background:#fff;border-radius:6px;color:var(--rv-ink);min-width:0}.rv-context-hint{color:var(--rv-muted);flex:1}.rv-mode,.rv-reading{display:flex;gap:3px;background:#eef0f4;padding:3px;border-radius:8px}.rv-mode button,.rv-reading button{background:transparent;border-color:transparent;padding:5px 11px;font-size:12px;color:#667181;white-space:nowrap}.rv-mode button[aria-pressed=true],.rv-reading button[aria-pressed=true]{background:#fff;color:#b44b16;box-shadow:0 1px 4px #0001;font-weight:bold}
+.rv-workspace{--rv-doc-width:440px;display:grid;grid-template-columns:minmax(0,1fr) 10px var(--rv-doc-width);height:auto;flex:1;min-height:0;min-width:0}.rv-canvas{padding:24px;min-width:0;min-height:0;overscroll-behavior:contain;overflow:auto}.rv-docs{padding:0;display:flex;flex-direction:column;min-width:0;min-height:0;overflow:hidden;border:0}.rv-doc-head{padding:16px 18px 12px;background:#fffbf2;border-bottom:1px solid #eddcc2;flex-shrink:0;z-index:3}.rv-doc-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}.rv-doc-heading h2{font-size:15px}.rv-kbd{font-size:11px;border:1px solid #e9dac4;border-radius:4px;color:#9b876d;padding:0 5px}.rv-search-row{display:flex;position:relative}.rv-search{font-size:13px;padding:9px 36px 9px 10px}.rv-search::-webkit-search-cancel-button{display:none}#clear-search{position:absolute;right:3px;top:3px;border:0;background:transparent;padding:2px 8px;font-size:20px;color:#967b5f}.rv-reading{margin-top:10px}.rv-reading button{flex:1;padding:5px 4px}.rv-jump-label{display:flex;gap:8px;align-items:center;font-size:11px;color:#917a61;margin-top:10px}.rv-jump-label select{flex:1;width:0;font-size:12px}.rv-progress{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px}.rv-count{margin:0;font-size:11px}.rv-progress>div{display:flex;gap:4px}.rv-progress button{padding:2px 8px;font-size:11px}.rv-progress button:disabled{opacity:.4}.rv-selection-hint{color:#9a744d;font-size:11px;margin-top:7px;overflow-wrap:anywhere}.rv-doc-body{padding:16px 18px 28px;overflow:auto;min-height:0;overscroll-behavior:contain;scroll-behavior:smooth}.rv-rule{padding:16px;background:#fffdf8}.rv-rule-title{font-size:14px;line-height:1.6;align-items:flex-start}.rv-number{flex-shrink:0}.rv-rule-meta{font-size:11px;color:#8b735b}.rv-rule p,.rv-rule li{font-size:13px;line-height:1.85;color:#5e564c}.rv-rule h3,.rv-rule summary{font-size:12px;color:#9d5523;font-weight:bold}.rv-rule summary{cursor:pointer;padding:7px 0}.rv-rule details{border-top:1px solid #f2e9db;margin-top:9px}.rv-rule ul{padding-left:20px}.rv-rule-footer{flex-wrap:wrap;gap:8px}.rv-rule-footer button{font-size:12px}.rv-rule-sections{display:flex;flex-direction:column}.rv-rule-sections>section,.rv-rule-sections>details{order:3}.rv-lens-qa .rv-acceptance{order:0;border:1px solid #c4decf;background:#f1faf4;border-radius:7px;padding:4px 10px}.rv-lens-qa .rv-exceptions{order:1}.rv-lens-dev .rv-rules{border-left:3px solid #c4d2ef;padding-left:10px;order:0}.rv-lens-dev .rv-development{order:1}.rv-lens-note{font-size:11px;color:#88735e;margin:0 0 12px}.rv-cases{margin:8px 0}.rv-case{padding:10px;background:#fff;border:1px solid #e3eadf;border-radius:6px;margin-top:8px}.rv-case b{font-size:12px}.rv-case p{margin-top:4px}.rv-no-target{font-size:11px;color:#8b8173}.rv-empty button{font-size:12px;margin-top:12px}.rv-focus-hint{border-left:3px solid #d4b17c;padding-left:10px;margin-bottom:12px;color:#8a6b43;font-size:12px}
+.rv-hotspot{border-color:transparent}.rv-hotspot:hover{background:transparent}.rv-hotspot.rv-hover,.rv-rule.rv-hover{outline:2px solid #4077d6;outline-offset:2px;background:#f0f6ff}.rv-hotspot.rv-selected{outline:2px solid var(--rv-brand);outline-offset:2px;background:#fff6ee}.rv-rule.selected{box-shadow:0 0 0 2px #ff6b2018}.rv-marker{min-width:26px;width:26px;height:26px;line-height:22px;font-size:12px}.rv-no-markers .rv-marker{display:none}.rv-stage{overflow:visible}.rv-splitter{cursor:col-resize;background:#f4eada;position:relative;touch-action:none}.rv-splitter:before{content:'';position:absolute;left:3px;top:45%;width:4px;height:36px;border-radius:4px;background:#cfb99a}.rv-splitter:hover,.rv-splitter:focus-visible{background:#f2d3a8}.rv-resizing{cursor:col-resize;user-select:none}.rv-resizing .rv-canvas,.rv-resizing .rv-doc-body{scroll-behavior:auto}
+#review-lines{position:fixed;inset:0;width:100vw;height:100dvh;pointer-events:none;z-index:20;overflow:hidden}#review-lines path{fill:none;stroke:#4077d6;stroke-width:2;stroke-dasharray:5 4;filter:drop-shadow(0 1px 1px #fff)}#review-lines circle{fill:#4077d6;stroke:#fff;stroke-width:2}#review-lines[hidden]{display:none}.rv-prototype-only .rv-workspace{grid-template-columns:minmax(0,1fr)}.rv-prototype-only .rv-docs,.rv-prototype-only .rv-splitter,.rv-prototype-only #review-lines{display:none}.rv-prototype-only .rv-marker{display:none}.rv-prototype-only .rv-hotspot{outline:0;background:transparent}
+@media(max-width:1150px){.rv-context-hint{display:none}.rv-canvas{padding:18px}.rv-stage{padding:18px 12px}.demo-tabs{gap:12px;flex-wrap:wrap}.demo-row{gap:12px;padding:10px}.demo-label{width:100px;flex-shrink:0}.demo-footer{margin-left:20px}}
+@media(max-width:860px){body{height:auto;min-height:100dvh;overflow:auto}.rv-top{padding:12px 16px}.rv-toolbar{padding:8px 12px;gap:8px}.rv-tabs{width:100%;flex-wrap:nowrap;overflow-x:auto}.rv-tabs button{flex-shrink:0}.rv-tools{margin-left:0}.rv-context{padding:8px 12px;gap:8px}.rv-page-picker{flex:1}.rv-page-picker select{width:100%;max-width:none;min-width:100px}.rv-mode button{padding:5px 8px}.rv-workspace{display:block;flex:none}.rv-canvas{overflow:visible;padding:16px 12px}.rv-docs{display:flex;border-top:1px solid #e5cfb0;overflow:visible}.rv-doc-body{overflow:visible;padding:14px 12px}.rv-doc-head{padding:14px 12px}.rv-splitter,#review-lines{display:none}.rv-prototype-only .rv-docs{display:none}.rv-intro{flex-wrap:wrap}.rv-path{display:none}.demo-row{gap:10px;flex-wrap:wrap}.demo-label{width:100px}.demo-phone-wrap{width:280px}.rv-jump-label select{padding:8px}.rv-rule{scroll-margin:16px}.rv-rule-title{font-size:15px}}
+@media(prefers-reduced-motion:reduce){.rv-doc-body{scroll-behavior:auto}#review-lines path{stroke-dasharray:none}}
+@media print{body{display:block;height:auto;overflow:visible}.rv-workspace{display:block}.rv-canvas,.rv-docs,.rv-doc-body{display:block!important;overflow:visible}.rv-top{padding:0 0 16px}.rv-toolbar,.rv-context,.rv-splitter,.rv-doc-head,#review-lines,.rv-marker,.rv-toast{display:none!important}.rv-rule{break-inside:avoid}.rv-docs{border:0}.rv-rule details>*{display:block}.rv-rule-footer{display:none}}
+
+[hidden]{display:none!important}.rv-tabs{flex-wrap:wrap}.rv-toolbar{gap:10px;flex-wrap:wrap}.rv-tools{flex-wrap:wrap}.rv-tabs #document-tab{border-left:1px solid #e2e8f0;border-radius:0;margin-left:8px;padding-left:20px}.rv-tabs #document-tab[aria-pressed=true]{border-radius:6px}
+.review-document{display:grid;grid-template-columns:235px minmax(0,1fr);height:calc(100vh - 126px);background:#f5f7fb;overflow:hidden;color:#253b56}.md-sidebar{background:white;border-right:1px solid #e2e8f0;padding:24px 14px;overflow:auto}.md-sidebar h2{font-size:18px;margin:0 8px 8px}.md-sidebar p{font-size:12px;color:#7c8fa8;margin:0 8px 20px}.md-sidebar nav{display:grid;gap:5px}.md-sidebar button{background:transparent;border:0;border-radius:6px;padding:12px 14px;text-align:left;color:#48627c;cursor:pointer;font-size:13px}.md-sidebar button[aria-pressed=true]{background:#eaf3ff;color:#1677ff;font-weight:600}.md-main{min-width:0;display:flex;flex-direction:column;overflow:hidden}.md-tools{display:flex;align-items:center;gap:12px;padding:18px 24px;background:white;border-bottom:1px solid #e2e8f0;flex-wrap:wrap}.md-tools>div{margin-right:auto}.md-tools h2{font-size:18px;margin:0 0 4px}.md-tools p{font-size:12px;color:#8191a5;margin:0}.md-tools label{font-size:11px;color:#71829a}.md-tools input{display:block;border:1px solid #d9e2ed;border-radius:5px;padding:8px;font-size:12px;width:205px}.md-tools button,.local-tools button{background:white;border:1px solid #d8e1ed;border-radius:5px;padding:8px 12px;color:#3b5572;font-size:12px;cursor:pointer}.md-reading{display:grid;grid-template-columns:190px minmax(0,1fr);gap:24px;overflow:auto;padding:24px}.md-reading>nav{display:flex;flex-direction:column;gap:6px;max-height:65vh;overflow:auto;position:sticky;top:0}.md-reading>nav button{border:0;background:transparent;text-align:left;font-size:11px;color:#7c8da1;padding:5px;cursor:pointer;line-height:1.6}.md-reading>nav .level-h3{padding-left:14px}.md-content{padding:26px 34px;background:white;border:1px solid #e3e9f0;border-radius:8px;min-width:0;line-height:1.9;font-size:14px;overflow-wrap:anywhere;scroll-margin-top:24px}.md-content h1{font-size:25px}.md-content h2{font-size:20px;border-bottom:1px solid #edf0f5;padding-bottom:12px;margin-top:30px}.md-content h3{font-size:16px}.md-content pre{white-space:pre-wrap;background:#f4f7fb;padding:16px;border-radius:6px}.md-content code{font-size:12px}.md-content blockquote{background:#eff6ff;border-left:3px solid #88baff;padding:12px 18px;margin-left:0}.md-table{overflow:auto}.md-content table{border-collapse:collapse;width:100%;font-size:12px}.md-content th,.md-content td{border:1px solid #e0e7f0;padding:8px;text-align:left}.md-content th{background:#f5f8fc}.viewing-markdown .rv-link-mobile,.viewing-markdown .rv-connection{display:none!important}
+@media(max-width:900px){.review-document{grid-template-columns:180px minmax(0,1fr)}.md-reading{display:block;padding:14px}.md-reading>nav{display:none}.md-content{padding:16px}.md-tools{padding:14px}.md-tools label{width:100%}.md-tools input{width:100%}}
+@media(max-width:600px){.review-document{display:flex;flex-direction:column;height:auto;min-height:80vh}.md-sidebar{padding:12px;overflow:visible}.md-sidebar p{display:none}.md-sidebar nav{display:flex;flex-wrap:wrap;gap:4px}.md-sidebar button{padding:7px 10px;font-size:11px}.md-main{overflow:visible}.md-reading{overflow:visible}.md-tools h2{font-size:16px}}
+
+[hidden]{display:none!important}.rv-tabs #document-tab{border-left:1px solid #e1d4c7;margin-left:6px;padding-left:18px}.review-document{height:auto;flex:1;min-height:0}.md-sidebar{padding:20px 14px}.md-sidebar nav button{width:100%}.md-main{min-height:0}.md-reading{min-height:0}.md-tools{padding:14px 20px;gap:8px}.md-tools button{padding:7px 10px}.md-tools input{width:220px}.md-result{width:100%;font-size:11px;color:#8b7e6c}.md-mobile-toc{display:none}.md-content{padding:24px 28px}.md-content h1{font-size:24px;line-height:1.5}.md-content h2{font-size:19px}.md-content h3{margin-top:22px}.md-content h1,.md-content h2,.md-content h3{scroll-margin:20px}.md-source{overflow-wrap:anywhere;white-space:pre-wrap}.viewing-markdown #review-lines{display:none!important}
+@media(max-width:1050px){.review-document{grid-template-columns:180px minmax(0,1fr)}.md-reading{display:block;padding:14px}.md-reading>nav{display:none}.md-mobile-toc{display:flex!important;gap:8px;align-items:center;width:100%}.md-mobile-toc select{min-width:0;flex:1;border:1px solid #d9e2ed;padding:7px;background:#fff}.md-tools{padding:12px}.md-tools label{width:100%}.md-tools input{width:100%}}
+@media(max-width:860px){.review-document{display:flex;flex-direction:column;flex:none;height:auto;min-height:70vh}.md-sidebar{padding:12px;overflow:visible;border-bottom:1px solid #e1e7ef}.md-sidebar p{display:none}.md-sidebar nav{display:flex;gap:5px;flex-wrap:wrap}.md-sidebar nav button{width:auto;padding:6px 9px;font-size:12px}.md-main{overflow:visible}.md-reading{overflow:visible}.md-content{padding:16px}.md-tools h2{font-size:17px}.md-tools button{font-size:12px}.md-content h1{font-size:20px}}
+@media print{.viewing-markdown .rv-workspace{display:none!important}.viewing-markdown .review-document{display:block}.md-sidebar,.md-tools,.md-reading>nav{display:none!important}.md-main,.md-reading{display:block;overflow:visible;padding:0}.md-content{border:0;padding:0}.md-content pre{white-space:pre-wrap}}
+
+
+.demo-library{position:relative;border:1px solid #e5e9ef;background:#fff;color:#38465b;font-size:12px}.demo-library>header{display:flex;gap:24px;padding:18px;border-bottom:1px solid #e5e9ef}.demo-library-layout{display:flex;min-height:430px}.demo-library-layout>aside{display:flex;flex-direction:column;gap:12px;padding:22px 12px;background:#fff;border-right:1px solid #e8edf3;min-width:130px}.demo-library-layout>aside button{text-align:left;border:0;color:#1874cd;background:#eef7ff}.demo-library-main{flex:1;min-width:0;padding:22px}.demo-library-main h3{font-size:17px;margin-bottom:10px}.demo-library-main p{font-size:12px;color:#6b7b8d}.demo-library-tools{display:flex;gap:10px;margin:22px 0}.demo-library-tools input{min-width:0;max-width:250px;flex:1;padding:8px;border:1px solid #dbe3ec}.demo-library-table{overflow:auto}.demo-library table{border-collapse:collapse;min-width:640px;width:100%}.demo-library th,.demo-library td{padding:12px;border-bottom:1px solid #e5eaf1;text-align:left;white-space:nowrap}.demo-library th{background:#f5f7fa;color:#718096}.demo-library td input{width:66px;border:1px solid #dbe3ec;padding:5px}.demo-library td button{margin-left:8px;color:#1772c5;border:0;padding:2px}.demo-overlay{position:absolute;inset:0;background:#26344966;display:flex;align-items:center;justify-content:center;padding:30px;z-index:5}.demo-dialog{background:#fff;border-radius:8px;box-shadow:0 12px 50px #182d4f33;padding:24px;width:min(450px,100%);max-height:90%;overflow:auto}.demo-dialog h3{margin-bottom:20px}.demo-dialog label{display:flex;gap:12px;align-items:center;margin:16px 0}.demo-dialog label input:not([type=checkbox]){min-width:0;max-width:100%;flex:1;padding:8px;border:1px solid #dce3ed}.demo-dialog footer{text-align:right;margin-top:25px}.demo-dialog footer button:last-child{background:#1480e6;color:#fff}.demo-preview{width:80px;height:80px;object-fit:cover}.rv-sample-reference{padding:0 24px 20px;font-size:12px;color:#768398}.rv-sample-reference img{max-width:100%;height:auto;border:1px solid #e3e8ef;margin-top:15px}.viewing-markdown .rv-sample-reference{display:none}@media(max-width:860px){.demo-library-layout>aside{min-width:90px;padding:10px 5px}.demo-library-layout>aside button{font-size:10px;padding:6px}.demo-library-main{padding:12px}.demo-overlay{padding:12px}.demo-dialog{padding:15px}.demo-dialog label{flex-wrap:wrap}}
+
+.rv-rule h3.rv-rule-title{font-size:13px;margin:0;color:var(--rv-ink);cursor:default}
+.rt-admin{background:#fff;border:1px solid #e9ebef;position:relative;min-height:440px;color:#222;font-size:13px}.rt-topbar{background:#242631;color:#fff;padding:14px 18px;display:flex;gap:22px;align-items:center}.rt-topbar b{font-size:19px}.rt-topbar span{color:#bfc4d0;font-size:12px}.rt-tabs{display:flex;gap:24px;align-items:center;border-bottom:1px solid #eee;padding:0 16px;overflow-x:auto;white-space:nowrap}.rt-tabs button,.rt-tabs span,.rt-tabs>b{border:0;background:none;color:#333;padding:18px 0;font-weight:normal;flex-shrink:0}.rt-tabs .on{color:#ff641c;border-bottom:2px solid #ff641c}.rt-filters{padding:18px 14px;display:flex;flex-wrap:wrap;align-items:end;gap:12px;background:#fafbfc}.rt-filters label{font-size:12px;display:flex;align-items:center;gap:8px}.rt-filters input,.rt-filters select{width:145px;padding:7px;border:1px solid #d9dce1;border-radius:3px;background:white}.rt-admin button:not(.link):not(.rt-tabs button),.rt-dialog button,.rt-wide{border:1px solid #ff651f;background:#ff651f;color:white;border-radius:4px;padding:7px 14px}.rt-admin button.secondary,.rt-dialog button.secondary{color:#555;background:#fff;border:1px solid #d9dce1}.rt-table{position:relative;overflow-x:auto;margin:18px 12px}.rt-table table{border-collapse:collapse;min-width:810px;width:100%;white-space:nowrap;font-size:12px}.rt-table th{font-weight:500;background:#fafafa}.rt-table td,.rt-table th{padding:18px 12px;border:1px solid #efefef;text-align:center}.rt-table tr:nth-child(even){background:#fafafa}.rt-table .rt-town{font-weight:600;color:#374a68}.rt-badge{color:#e79722;background:#fff8eb;padding:3px 7px;border-radius:3px}.rt-badge.ok{color:#48a478;background:#edf8f1}.link{border:0!important;background:transparent!important;color:#ff661e!important;padding:4px 6px!important;white-space:nowrap}.rt-demo-control{border:1px dashed #ccd5df;background:#f8fafc;border-radius:7px;margin:15px 0 0;padding:12px;font-size:12px;color:#6f7e8e;display:flex;gap:8px;flex-wrap:wrap;align-items:center}.rt-demo-control>b{color:#4d617a}.rt-demo-control>span{display:block;width:100%}.rt-demo-control button{background:#fff;border:1px solid #cdd8e6;border-radius:4px;padding:5px 9px;color:#536b8d;margin:4px}.rt-overlay{position:absolute;inset:0;z-index:6;background:#1e293b66;display:flex;align-items:center;justify-content:center;padding:18px;border-radius:5px}.rt-dialog{background:white;border-radius:7px;width:min(400px,100%);padding:22px;box-shadow:0 15px 45px #0003;max-height:100%;overflow:auto;position:relative;color:#333}.rt-dialog h3{margin:0 0 20px;font-size:17px}.rt-dialog p{font-size:13px}.rt-dialog label{display:block}.rt-dialog select{display:block;width:100%;padding:10px;margin:12px 0;border:1px solid #d6dce6;border-radius:4px;background:#fff}.rt-dialog footer{display:flex;justify-content:flex-end;gap:10px;margin-top:25px}.rt-required{color:#ff5f24}.rt-phone{width:min(340px,100%);min-height:560px;background:#f4f4f4;border:1px solid #eee;margin:auto;position:relative;overflow:hidden;color:#222;font:13px/1.6 'Microsoft YaHei',sans-serif}.rt-phone-status{height:24px;background:#ff6b16;color:#fff;padding:3px 16px;font-size:11px;font-weight:600;display:flex;justify-content:space-between}.rt-phone-header{height:45px;background:#ff6b16;color:#fff;display:flex;align-items:center;gap:12px;padding:0 16px}.rt-phone-header b{font-size:15px;font-weight:500}.rt-user-content{padding:14px 12px 22px}.rt-user-card{background:#fff;padding:26px 16px 34px;border-radius:5px}.rt-clock{background:#23a6ef;color:#fff;border-radius:50%;height:46px;width:46px;font:36px/44px sans-serif;text-align:center;margin:0 auto 12px}.rt-state{text-align:center;font-size:12px;margin-bottom:35px}.rt-user-card h4{margin:0 0 8px;font-size:12px}.rt-fields{border:1px solid #ededed;border-radius:4px;padding:9px 12px;position:relative}.rt-fields p{display:flex;gap:8px;justify-content:space-between;font-size:11px;margin:12px 0}.rt-fields b{font-weight:500}.rt-fields span{text-align:right}.rt-fields i{color:red;font-style:normal}.rt-phone-help{font-size:10px;color:#999;margin:12px 0 0;line-height:1.8}.rt-phone-help strong{color:#ff6c22;font-weight:400}.rt-wide{width:100%;margin-top:25px}.rt-steps{padding:16px 12px;background:white;color:#ff7a23;font-size:11px;display:flex;justify-content:space-around;border-top:1px solid #fff}.rt-rider-wait{text-align:center;padding:65px 12px 25px;position:relative;min-height:340px}.rt-shield{background:linear-gradient(140deg,#ffe5ad,#ffb74b);height:82px;width:82px;border:8px solid #ffeac3;border-radius:24px 24px 42px 42px;color:white;font:bold 49px/65px sans-serif;margin:0 auto 35px;transform:rotate(-8deg);box-shadow:0 12px 24px #fbdca3aa}.rt-rider-wait p{color:#888;font-size:12px}.rt-rider-wait em{color:#ff741f;font-style:normal}.rt-rider-wait .rt-approved-town{color:#333;font-size:13px}.rt-exit{display:block;position:relative;margin:25px auto 30px;width:86%;border:1px solid #ccc;border-radius:4px;background:#fff;color:#333;padding:7px}.rt-op-body{position:relative;min-height:390px}.rt-operator .rt-tabs .on{color:#4098ff;border-color:#4098ff}.rt-operator .link{color:#4098ff!important}.rt-operator-phone .rt-phone-status,.rt-operator-phone .rt-phone-header{background:white;color:#333}.rt-op-mobile nav{display:flex;justify-content:space-around;padding:14px;background:white}.rt-op-mobile nav b{color:#ff641c;border-bottom:2px solid #ff641c;padding-bottom:5px}.rt-op-mobile article{position:relative;margin:12px;background:white;padding:17px;border-radius:8px}.rt-op-mobile article>.link{position:absolute;right:14px;top:12px}.rt-op-mobile article time{color:#999;font-size:11px}.rt-op-mobile article p{color:#ff641c}.rt-op-actions{display:flex;justify-content:flex-end}.rt-empty{text-align:center;color:#999;font-size:12px;padding:20px}.rt-drawer{position:relative;margin:12px;background:white;border-radius:8px;padding:10px 10px 4px}.rt-profile{padding:10px 3px 20px;display:grid;grid-template-columns:46px 1fr;align-items:center}.rt-profile>span{grid-row:span 2;font-size:30px}.rt-profile small{color:#888}.rt-shortcuts{padding:15px 0 22px;border-bottom:1px dashed #eee;font-size:11px;color:#a87958}.rt-menu{width:100%;padding:12px 5px;background:white;border:0;border-bottom:1px solid #fafafa;display:flex;justify-content:space-between;font-size:12px;color:#555;text-align:left}.rt-menu span{color:#bbb}.rt-close{color:#333}.rt-close:hover{color:#ff641c;background:#fff8f0}.rt-menu-result{color:#ff641c;font-size:12px;line-height:1.8}.rt-operator-phone{background:#f5f5fa}.rt-phone .rt-overlay{align-items:center}.rt-phone .rt-dialog{padding:18px}.rt-phone .rt-dialog p{font-size:12px}.rt-phone .rt-dialog footer{flex-wrap:wrap}.rt-phone .rt-menu-result:empty{display:none}@media(max-width:600px){.rt-filters label{width:100%;justify-content:space-between}.rt-filters input,.rt-filters select{width:65%}.rt-tabs{gap:18px}.rt-admin{min-height:440px}.rt-topbar{padding:10px;gap:10px;flex-wrap:wrap}.rt-topbar b{font-size:15px}.rv-stage{padding:12px 8px}.rt-overlay{padding:10px}.rt-dialog{padding:18px}.rt-demo-control{overflow-wrap:anywhere}.rt-phone{min-height:540px}}
+
+.rv-marker{border-radius:50%!important;display:grid;place-items:center;padding:0!important;line-height:1!important}.rv-rule-number{border-radius:50%!important}.rt-table>.rv-marker{right:3px;top:3px}.rt-dialog>.rv-marker{right:12px;top:12px}.rt-unqualified{display:inline-flex;align-items:center;gap:4px;position:relative;padding-right:26px}.rt-unqualified>.rv-marker{right:0;top:0}.rt-qualification{color:#999;font-size:10px}
+.rt-table>.rv-marker,.rt-dialog>.rv-marker,.rt-unqualified>.rv-marker{transform:none}.rt-fields>.rv-marker{top:0;right:0;transform:translate(35%,-35%)}
+
+/* 分配小镇：名称查询、全量小镇列表和更换确认。 */
+.rt-admin:has(.rt-picker-overlay){min-height:660px}
+.rt-picker-overlay{padding:14px;align-items:center;background:#252a355e}
+.rt-town-picker{width:min(1120px,100%);padding:0;display:flex;flex-direction:column;max-height:min(650px,calc(100dvh - 230px));overflow:hidden;border-radius:3px}
+.rt-town-picker>.rv-marker{right:48px;top:14px;transform:none}
+.rt-picker-heading{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #eee;flex-shrink:0}
+.rt-picker-heading h3{margin:0;font-size:15px;font-weight:500}
+.rt-admin .rt-town-picker .rt-picker-close{border:0;background:transparent;color:#888;font-size:24px;padding:0 2px;line-height:1}
+.rt-town-query{display:flex;align-items:center;justify-content:space-between;padding:22px 20px 24px;gap:20px;flex-shrink:0}
+.rt-town-query input{width:285px;max-width:100%;border:1px solid #d8d8d8;border-radius:2px;padding:8px 10px;font-size:12px;min-width:0}
+.rt-town-query input::placeholder{color:#bbb}
+.rt-town-query>div{display:flex;gap:8px;flex-shrink:0}
+.rt-town-table{margin:0 16px;min-height:75px;max-height:420px;overflow:auto;flex:1}
+.rt-town-table table{border-collapse:collapse;width:100%;min-width:610px;font-size:12px;text-align:center;white-space:nowrap}
+.rt-town-table th{position:sticky;top:0;z-index:1;background:#fafafa;font-weight:500;padding:14px 16px;color:#17304e}
+.rt-town-table td{border-bottom:1px solid #eee;padding:12px 16px;color:#18304a}
+.rt-town-table th:first-child{width:68px}.rt-town-table th:last-child{width:88px}
+.rt-town-table .rt-town-empty{padding:48px 10px;color:#aaa}
+.rt-town-picker .rt-town-pages{display:flex;justify-content:flex-end;align-items:center;gap:7px;flex-wrap:wrap;padding:16px 20px;margin:0;border-top:1px solid #fafafa;flex-shrink:0;font-size:12px;min-height:58px}
+.rt-admin .rt-town-pages .rt-page{background:#f5f5f5;border-color:#f5f5f5;color:#666;padding:1px 7px;border-radius:2px;min-width:24px}
+.rt-admin .rt-town-pages .rt-page.current{background:#ff671f;border-color:#ff671f;color:white}
+.rt-town-pages .rt-page:disabled{opacity:.4}
+.rt-town-pages select{width:auto;display:inline-block;margin:0;padding:3px 5px;border:1px solid #ddd;font-size:12px;border-radius:1px}
+.rt-confirm-layer{position:absolute;inset:0;z-index:5;background:#2227;display:flex;align-items:center;justify-content:center;padding:20px}
+.rt-town-confirm{width:min(430px,100%);background:#fff;padding:24px;border-radius:5px;box-shadow:0 10px 28px #0003}
+.rt-town-confirm h3{font-size:16px;margin:0 0 22px}
+.rt-town-confirm p{font-size:14px;line-height:1.9;overflow-wrap:anywhere}
+.rt-town-confirm strong{color:#ff681f;margin:0 4px;font-weight:500}
+.rt-town-confirm footer{display:flex;justify-content:flex-end;gap:10px;margin-top:24px}
+.rt-admin .rt-dialog.rt-town-picker.rv-hotspot{background:#fff}
+.rt-admin .rt-dialog.rt-town-picker button.rt-picker-close{border:0;background:transparent;color:#888;font-size:24px;padding:0 2px;line-height:1}
+.rt-admin .rt-dialog.rt-town-picker button.secondary{background:#fff;color:#555;border:1px solid #d9dce1}
+.rt-admin .rt-dialog.rt-town-picker .rt-town-pages button.rt-page{background:#f5f5f5;border-color:#f5f5f5;color:#666;padding:1px 7px;border-radius:2px;min-width:24px}
+.rt-admin .rt-dialog.rt-town-picker .rt-town-pages button.rt-page.current{background:#ff671f;border-color:#ff671f;color:white}
+@media(max-width:860px){.rt-picker-overlay{padding:8px}.rt-town-picker{max-height:min(650px,calc(100dvh - 110px))}.rt-town-query{padding:16px 12px;gap:8px;flex-wrap:wrap}.rt-town-query input{width:100%}.rt-town-query>div{margin-left:auto}.rt-town-table{margin:0 8px}.rt-town-picker .rt-town-pages{padding:12px 10px;gap:5px}.rt-picker-heading{padding:15px 12px}.rt-confirm-layer{padding:10px}.rt-town-confirm{padding:18px}.rt-admin:has(.rt-picker-overlay){min-height:620px}}
+
+.rv-rule-number{display:inline-grid;place-items:center;min-width:23px;height:23px;padding:0 5px;background:#ff6b20;color:#fff;border-radius:6px;font:600 12px/1 sans-serif;margin-right:8px;vertical-align:middle}
+</style>
+</head>
+<body>
+<header class="rv-top"><div class="rv-logo">PR</div><div><h1 id="review-title"></h1><div class="rv-sub" id="review-sub"></div></div><span class="rv-status">V1.0 · 线上只读评审</span></header>
+<div class="rv-toolbar"><nav class="rv-tabs" id="end-nav" aria-label="按端查看"></nav><div class="rv-tools"><label><input type="checkbox" id="markers" checked>标注</label><label><input type="checkbox" id="lines" checked>关联线</label><button id="reset" type="button">重置演示</button></div></div>
+<div class="rv-context"><label class="rv-page-picker">页面 <select id="page-filter" aria-label="按页面筛选"></select></label><span class="rv-context-hint">悬停看关联 · 点标注读需求 · 业务控件可直接操作</span><div class="rv-mode" role="group" aria-label="展示模式"><button type="button" data-view="review" aria-pressed="true">联动评审</button><button type="button" data-view="prototype" aria-pressed="false">仅原型</button></div></div>
+<div class="rv-workspace" id="workspace">
+ <main class="rv-canvas" id="canvas" aria-label="交互原型"></main>
+ <div id="splitter" class="rv-splitter" role="separator" tabindex="0" aria-label="调整需求面板宽度" aria-orientation="vertical" aria-valuemin="340" aria-valuemax="680" aria-valuenow="440" title="拖动调整宽度；方向键微调；双击还原"></div>
+ <aside class="rv-docs" aria-label="对应需求文档">
+  <div class="rv-doc-head"><div class="rv-doc-heading"><h2>功能需求说明</h2><span class="rv-kbd">/ 搜索</span></div>
+   <div class="rv-search-row"><input type="search" id="search" class="rv-search" placeholder="搜索名称、规则、异常、验收…" aria-label="搜索当前范围需求"><button type="button" id="clear-search" aria-label="清除搜索" title="清除搜索">×</button></div>
+   <div class="rv-reading" role="group" aria-label="查阅重点"><button type="button" data-lens="all" aria-pressed="true">完整需求</button><button type="button" data-lens="dev" aria-pressed="false">后端规则</button><button type="button" data-lens="frontend" aria-pressed="false">前端 UI</button><button type="button" data-lens="qa" aria-pressed="false">测试查阅</button></div>
+   <label class="rv-jump-label">需求目录 <select id="req-jump" aria-label="按需求目录跳转"></select></label>
+   <div class="rv-progress"><p id="doc-count" class="rv-count" role="status"></p><div><button id="prev-req" type="button" aria-label="上一条需求">↑</button><button id="next-req" type="button" aria-label="下一条需求">↓</button></div></div>
+   <p id="review-context" class="rv-selection-hint" role="status">点击原型标注查看对应需求；目录与翻阅仅用于文档查阅。</p>
+  </div>
+  <div id="doc-body" class="rv-doc-body"><div id="requirements"></div><div id="shared"></div></div>
+ </aside>
+</div>
+<svg id="review-lines" aria-hidden="true"><path></path><circle r="4"></circle><circle r="4"></circle></svg>
+<div class="rv-toast" id="toast" role="status" aria-live="polite"></div>
+<section id="review-document" class="review-document" hidden aria-label="Markdown 文档阅读">
+ <aside class="md-sidebar"><h2>Markdown 文档</h2><p>按模块查阅，按需下载</p><nav id="md-categories" aria-label="文档分类"></nav></aside>
+ <main class="md-main"><div class="md-tools"><div><h2 id="md-title"></h2><p id="md-hint"></p></div><label>搜索当前分类<input id="md-search" type="search" placeholder="搜索规则或需求名称"></label><button id="md-clear" type="button">清除搜索</button><button id="md-source-toggle" type="button">查看 Markdown 源码</button><button id="md-download" type="button">下载当前分类 .md</button><button id="md-download-all" type="button">下载完整 PRD .md</button><button id="md-return" type="button">返回原型</button><p id="md-result" class="md-result" role="status"></p><label class="md-mobile-toc">章节 <select id="md-section-jump" aria-label="文档章节跳转"></select></label></div><div class="md-reading" id="md-reading"><nav id="md-toc" aria-label="文档目录"></nav><article id="md-content" class="md-content"></article></div></main>
+</section>
+
+<script type="application/json" id="review-source">{
+  "title": "审核中骑手修改小镇归属",
+  "version": "V1.0",
+  "ends": [
+    {
+      "id": "admin",
+      "name": "总后台",
+      "device": "desktop"
+    },
+    {
+      "id": "user",
+      "name": "用户端",
+      "device": "mobile"
+    },
+    {
+      "id": "rider",
+      "name": "骑手 APP",
+      "device": "mobile"
+    },
+    {
+      "id": "operator-pc",
+      "name": "运营商 PC",
+      "device": "desktop"
+    },
+    {
+      "id": "operator-app",
+      "name": "运营商 APP",
+      "device": "mobile"
+    }
+  ],
+  "pages": [
+    {
+      "id": "applications",
+      "end": "admin",
+      "name": "骑手申请",
+      "path": "小镇管理 → 骑手管理 → 骑手申请"
+    },
+    {
+      "id": "approved",
+      "end": "admin",
+      "name": "骑手管理",
+      "path": "小镇管理 → 骑手管理 → 骑手管理"
+    },
+    {
+      "id": "user-pending",
+      "end": "user",
+      "name": "申请骑手 · 待审核",
+      "path": "申请骑手 → 待审核详情"
+    },
+    {
+      "id": "rider-pending",
+      "end": "rider",
+      "name": "完善信息 · 审核中",
+      "path": "注册 → 完善信息"
+    },
+    {
+      "id": "operator-pc-review",
+      "end": "operator-pc",
+      "name": "骑手审核",
+      "path": "配送管理 → 骑手管理 → 骑手审核"
+    },
+    {
+      "id": "operator-app-review",
+      "end": "operator-app",
+      "name": "待审核骑手",
+      "path": "骑手管理 → 待审核"
+    },
+    {
+      "id": "rider-close",
+      "end": "rider",
+      "name": "注销账户",
+      "path": "侧边菜单 → 注销账户"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "rider-assign",
+      "end": "admin",
+      "page": "applications",
+      "title": "待审核骑手分配小镇",
+      "summary": "用户端申请或骑手 APP 已实名认证的待审核骑手可修改归属。",
+      "state": "assign",
+      "backend": {
+        "rules": [
+          "待审核骑手中，来源为“用户端申请”，或来源为“骑手APP注册”且已完成实名认证的骑手，允许修改小镇归属；操作权限沿用现有规则，可选择全部小镇；只有二次确认后才修改归属，取消不修改。修改成功后，“申请小镇”更新，状态仍为待审核。",
+          "来源为“用户端申请”：同步调整该骑手申请的归属；用户端待审核详情中的“申请入职的小镇”及下方“小镇客服电话”均更新为新小镇对应信息。",
+          "来源为“骑手APP注册”：同步调整该骑手在申请中的小镇归属；审核通过时，使用修改后的归属，不恢复为原申请小镇。",
+          "两种来源的骑手审核通过后，正式骑手归属均以修改后的新小镇为准。"
+        ],
+        "exceptions": [],
+        "acceptance": []
+      },
+      "frontend": {
+        "rules": [
+          "总后台骑手管理页签顺序：骑手管理、骑手申请、骑手资金管理、保险管理；【骑手申请】紧随【骑手管理】。",
+          "入口：总后台 → 小镇管理 → 骑手管理 → 骑手申请。符合改镇条件的待审核记录显示【分配小镇】，点击打开【选择小镇】弹窗。",
+          "弹窗默认展示全部小镇，字段为ID、小镇名称、所属区域、操作；数据量较多时分页展示。输入小镇名称可模糊查询，点击【查询】展示匹配结果；点击【重置】清空条件并恢复全部小镇。",
+          "每行提供【选择】。点击后弹出二次确认：“是否将骑手从【原小镇名称】更换到【目标小镇名称】？”原小镇取骑手当前归属，目标小镇取所选行。",
+          "点击【确认】后执行更换，成功提示“操作成功”，关闭弹窗并更新列表；点击【取消】只关闭二次确认弹窗，不修改归属。选择小镇弹窗右上角【关闭】退出本次操作。"
+        ],
+        "exceptions": [],
+        "acceptance": []
+      },
+      "rules": [],
+      "exceptions": [],
+      "acceptance": [],
+      "legacyUnclassified": false
+    },
+    {
+      "id": "user-town",
+      "end": "user",
+      "page": "user-pending",
+      "title": "用户端申请小镇展示",
+      "summary": "用户端申请的骑手看到新的申请小镇。",
+      "frontend": {
+        "rules": [
+          "用户端 → 申请骑手 → 待审核详情：重新进入或刷新页面后，“申请入职的小镇”和下方“小镇客服电话”均显示新小镇对应信息。",
+          "页面继续显示“待审核...”；姓名、联系电话和撤回申请等已有展示与操作沿用原规则。"
+        ],
+        "exceptions": [],
+        "acceptance": []
+      },
+      "rules": [],
+      "exceptions": [],
+      "acceptance": [],
+      "legacyUnclassified": false,
+      "state": ""
+    },
+    {
+      "id": "rider-pending",
+      "end": "rider",
+      "page": "rider-pending",
+      "title": "骑手 APP 审核中页面",
+      "summary": "申请归属调整后，保持现有审核中提示。",
+      "frontend": {
+        "rules": [
+          "骑手 APP 注册来源：后台修改申请归属后，页面保持“通过实名认证，等待审核中”的现有提示。",
+          "审核通过后按“待审核骑手分配小镇”规则使用新归属。"
+        ],
+        "exceptions": [],
+        "acceptance": []
+      },
+      "rules": [],
+      "exceptions": [],
+      "acceptance": [],
+      "legacyUnclassified": false,
+      "state": ""
+    },
+    {
+      "id": "approved-town",
+      "end": "admin",
+      "page": "approved",
+      "title": "审核通过后的归属展示",
+      "summary": "审核通过后，骑手管理显示修改后的所属小镇。",
+      "frontend": {
+        "rules": [
+          "骑手审核通过后，总后台【骑手管理】列表的“所属小镇”以及骑手端已有归属展示位置均显示新小镇；【骑手管理】栏目，分配小镇的时候，需要二次确认交互，同【骑手审核】界面一样。"
+        ],
+        "exceptions": [],
+        "acceptance": []
+      },
+      "rules": [],
+      "exceptions": [],
+      "acceptance": [],
+      "legacyUnclassified": false,
+      "state": ""
+    },
+    {
+      "id": "operator-pc-guard",
+      "end": "operator-pc",
+      "page": "operator-pc-review",
+      "title": "运营商审核归属校验",
+      "summary": "运营商只能审核当前仍归属本小镇的骑手。",
+      "backend": {
+        "rules": [
+          "运营商 PC 和运营商 APP 审核骑手时，均需校验骑手当前是否仍归属本次操作的小镇；",
+          "如果骑手已不归属本小镇，阻止本次审核，提示“骑手小镇归属变更，请刷新后重试”，不改变骑手审核状态；",
+          "刷新后按当前小镇归属重新展示骑手列表；仍归属本小镇的骑手沿用原有审核规则。"
+        ],
+        "exceptions": [],
+        "acceptance": []
+      },
+      "frontend": {
+        "rules": [
+          "运营商 PC → 配送管理 → 骑手管理 → 骑手审核：如果骑手归属变更了，操作审核的时候提示：骑手小镇归属变更，请刷新后重试；刷新之后，列表对应骑手数据不显示"
+        ],
+        "exceptions": [],
+        "acceptance": []
+      },
+      "rules": [],
+      "exceptions": [],
+      "acceptance": [],
+      "legacyUnclassified": false,
+      "state": ""
+    },
+    {
+      "id": "operator-app-guard",
+      "end": "operator-app",
+      "page": "operator-app-review",
+      "title": "运营商 APP 审核提示",
+      "summary": "运营商 APP 使用相同归属校验和提示。",
+      "frontend": {
+        "rules": [
+          "运营商 APP → 骑手管理 → 待审核：如果骑手归属变更了，操作审核的时候提示：骑手小镇归属变更，请刷新后重试；刷新之后，列表对应骑手数据不显示"
+        ],
+        "exceptions": [],
+        "acceptance": []
+      },
+      "rules": [],
+      "exceptions": [],
+      "acceptance": [],
+      "legacyUnclassified": false,
+      "state": ""
+    },
+    {
+      "id": "rider-close-guard",
+      "end": "rider",
+      "page": "rider-close",
+      "title": "骑手 APP 注销归属校验",
+      "summary": "归属变更后，阻止基于原归属发起的注销。",
+      "backend": {
+        "rules": [
+          "骑手 APP 操作【注销账户】时，若骑手当前归属与本次操作所使用的小镇归属不一致，阻止本次注销，提示“骑手归属变更，请刷新后重试”，账户保持原状态；归属未变更时沿用原注销规则。"
+        ],
+        "exceptions": [],
+        "acceptance": []
+      },
+      "frontend": {
+        "rules": [
+          "入口：骑手 APP 侧边菜单 →【注销账户】。归属校验失败时展示“骑手归属变更，请刷新后重试”；不将本次失败展示为注销成功。刷新之后，获取最新的骑手小镇归属"
+        ],
+        "exceptions": [],
+        "acceptance": []
+      },
+      "rules": [],
+      "exceptions": [],
+      "acceptance": [],
+      "legacyUnclassified": false,
+      "state": ""
+    },
+    {
+      "id": "unqualified-close",
+      "end": "admin",
+      "page": "applications",
+      "title": "未提交资质的 APP 申请注销",
+      "summary": "总后台确认注销未提交资质的 APP 申请账号，允许重新申请。",
+      "backend": {
+        "rules": [
+          "待审核骑手来源为“骑手APP注册”且未提交资质信息时，总后台【骑手申请】列表可注销该骑手账号；二次确认后才执行注销，取消不注销。",
+          "注销成功后，该账号不可登录骑手APP，本次申请结束；骑手可以使用原手机号重新申请，不因原账号已申请而被拦截。"
+        ],
+        "exceptions": [],
+        "acceptance": []
+      },
+      "frontend": {
+        "rules": [
+          "未提交资质的 APP 申请在操作列显示【注销】；该分支不使用【分配小镇】。点击【注销】弹出二次确认：“是否注销【骑手手机号】骑手账号，注销之后骑手不可登录APP？”其中手机号完整展示，替换为当前行的实际手机号。",
+          "弹窗提供【确定】【取消】。点击【确定】执行注销，成功后提示“注销成功”，关闭弹窗并刷新列表；点击【取消】关闭弹窗，不注销账号，不改变本次申请。"
+        ],
+        "exceptions": [],
+        "acceptance": []
+      },
+      "rules": [],
+      "exceptions": [],
+      "acceptance": [],
+      "legacyUnclassified": false,
+      "state": ""
+    }
+  ],
+  "shared": [],
+  "documentMarkdown": "# 审核中骑手修改小镇归属\n\n版本：V1.0\n\n## 公共说明\n\n创建／修改：2026-11-20；适用端：总后台、用户端、骑手 APP、运营商 PC、运营商 APP；\n\n需求背景：待审核骑手也需要调整小镇归属，并避免运营商或骑手在归属已变更后继续按旧归属操作。\n\n本次改动：\n\n* 总后台对用户端申请、骑手 APP 已实名认证的待审核骑手提供【分配小镇】；APP 未提交资质的申请支持直接注销，注销后可重新申请。\n* 按申请来源同步归属，用户端同步显示新小镇及客服电话；审核通过后使用新归属。\n* 运营商 PC／APP 审核和骑手 APP 注销时增加归属校验及指定提示。\n\n列表展示：总后台骑手申请／骑手管理、运营商 PC／APP 骑手列表中的骑手手机号暂不脱敏，完整展示手机号。\n\n## 后端调整\n\n### 待审核骑手分配小镇\n\n所属端：总后台；页面：骑手申请\n\n用户端申请或骑手 APP 已实名认证的待审核骑手可修改归属。\n\n#### 处理规则\n\n- 待审核骑手中，来源为“用户端申请”，或来源为“骑手APP注册”且已完成实名认证的骑手，允许修改小镇归属；操作权限沿用现有规则，可选择全部小镇；只有二次确认后才修改归属，取消不修改。修改成功后，“申请小镇”更新，状态仍为待审核。\n- 来源为“用户端申请”：同步调整该骑手申请的归属；用户端待审核详情中的“申请入职的小镇”及下方“小镇客服电话”均更新为新小镇对应信息。\n- 来源为“骑手APP注册”：同步调整该骑手在申请中的小镇归属；审核通过时，使用修改后的归属，不恢复为原申请小镇。\n- 两种来源的骑手审核通过后，正式骑手归属均以修改后的新小镇为准。\n\n\n### 运营商审核归属校验\n\n所属端：运营商 PC；页面：骑手审核\n\n运营商只能审核当前仍归属本小镇的骑手。\n\n#### 处理规则\n\n- 运营商 PC 和运营商 APP 审核骑手时，均需校验骑手当前是否仍归属本次操作的小镇；\n- 如果骑手已不归属本小镇，阻止本次审核，提示“骑手小镇归属变更，请刷新后重试”，不改变骑手审核状态；\n- 刷新后按当前小镇归属重新展示骑手列表；仍归属本小镇的骑手沿用原有审核规则。\n\n\n### 骑手 APP 注销归属校验\n\n所属端：骑手 APP；页面：注销账户\n\n归属变更后，阻止基于原归属发起的注销。\n\n#### 处理规则\n\n- 骑手 APP 操作【注销账户】时，若骑手当前归属与本次操作所使用的小镇归属不一致，阻止本次注销，提示“骑手归属变更，请刷新后重试”，账户保持原状态；归属未变更时沿用原注销规则。\n\n\n### 未提交资质的 APP 申请注销\n\n所属端：总后台；页面：骑手申请\n\n总后台确认注销未提交资质的 APP 申请账号，允许重新申请。\n\n#### 处理规则\n\n- 待审核骑手来源为“骑手APP注册”且未提交资质信息时，总后台【骑手申请】列表可注销该骑手账号；二次确认后才执行注销，取消不注销。\n- 注销成功后，该账号不可登录骑手APP，本次申请结束；骑手可以使用原手机号重新申请，不因原账号已申请而被拦截。\n\n\n\n## 前端 UI 调整\n\n### 待审核骑手分配小镇\n\n所属端：总后台；页面：骑手申请\n\n用户端申请或骑手 APP 已实名认证的待审核骑手可修改归属。\n\n#### 入口、展示与操作\n\n- 总后台骑手管理页签顺序：骑手管理、骑手申请、骑手资金管理、保险管理；【骑手申请】紧随【骑手管理】。\n- 入口：总后台 → 小镇管理 → 骑手管理 → 骑手申请。符合改镇条件的待审核记录显示【分配小镇】，点击打开【选择小镇】弹窗。\n- 弹窗默认展示全部小镇，字段为ID、小镇名称、所属区域、操作；数据量较多时分页展示。输入小镇名称可模糊查询，点击【查询】展示匹配结果；点击【重置】清空条件并恢复全部小镇。\n- 每行提供【选择】。点击后弹出二次确认：“是否将骑手从【原小镇名称】更换到【目标小镇名称】？”原小镇取骑手当前归属，目标小镇取所选行。\n- 点击【确认】后执行更换，成功提示“操作成功”，关闭弹窗并更新列表；点击【取消】只关闭二次确认弹窗，不修改归属。选择小镇弹窗右上角【关闭】退出本次操作。\n\n\n### 用户端申请小镇展示\n\n所属端：用户端；页面：申请骑手 · 待审核\n\n用户端申请的骑手看到新的申请小镇。\n\n#### 入口、展示与操作\n\n- 用户端 → 申请骑手 → 待审核详情：重新进入或刷新页面后，“申请入职的小镇”和下方“小镇客服电话”均显示新小镇对应信息。\n- 页面继续显示“待审核...”；姓名、联系电话和撤回申请等已有展示与操作沿用原规则。\n\n\n### 骑手 APP 审核中页面\n\n所属端：骑手 APP；页面：完善信息 · 审核中\n\n申请归属调整后，保持现有审核中提示。\n\n#### 入口、展示与操作\n\n- 骑手 APP 注册来源：后台修改申请归属后，页面保持“通过实名认证，等待审核中”的现有提示。\n- 审核通过后按“待审核骑手分配小镇”规则使用新归属。\n\n\n### 审核通过后的归属展示\n\n所属端：总后台；页面：骑手管理\n\n审核通过后，骑手管理显示修改后的所属小镇。\n\n#### 入口、展示与操作\n\n- 骑手审核通过后，总后台【骑手管理】列表的“所属小镇”以及骑手端已有归属展示位置均显示新小镇；【骑手管理】栏目，分配小镇的时候，需要二次确认交互，同【骑手审核】界面一样。\n\n\n### 运营商审核归属校验\n\n所属端：运营商 PC；页面：骑手审核\n\n运营商只能审核当前仍归属本小镇的骑手。\n\n#### 入口、展示与操作\n\n- 运营商 PC → 配送管理 → 骑手管理 → 骑手审核：如果骑手归属变更了，操作审核的时候提示：骑手小镇归属变更，请刷新后重试；刷新之后，列表对应骑手数据不显示\n\n\n### 运营商 APP 审核提示\n\n所属端：运营商 APP；页面：待审核骑手\n\n运营商 APP 使用相同归属校验和提示。\n\n#### 入口、展示与操作\n\n- 运营商 APP → 骑手管理 → 待审核：如果骑手归属变更了，操作审核的时候提示：骑手小镇归属变更，请刷新后重试；刷新之后，列表对应骑手数据不显示\n\n\n### 骑手 APP 注销归属校验\n\n所属端：骑手 APP；页面：注销账户\n\n归属变更后，阻止基于原归属发起的注销。\n\n#### 入口、展示与操作\n\n- 入口：骑手 APP 侧边菜单 →【注销账户】。归属校验失败时展示“骑手归属变更，请刷新后重试”；不将本次失败展示为注销成功。刷新之后，获取最新的骑手小镇归属\n\n\n### 未提交资质的 APP 申请注销\n\n所属端：总后台；页面：骑手申请\n\n总后台确认注销未提交资质的 APP 申请账号，允许重新申请。\n\n#### 入口、展示与操作\n\n- 未提交资质的 APP 申请在操作列显示【注销】；该分支不使用【分配小镇】。点击【注销】弹出二次确认：“是否注销【骑手手机号】骑手账号，注销之后骑手不可登录APP？”其中手机号完整展示，替换为当前行的实际手机号。\n- 弹窗提供【确定】【取消】。点击【确定】执行注销，成功后提示“注销成功”，关闭弹窗并刷新列表；点击【取消】关闭弹窗，不注销账号，不改变本次申请。\n\n\n\n## 测试要点\n\n* 用户端申请、骑手 APP 已实名认证的待审核骑手 → 小镇列表可模糊查询、重置、分页；选择后二次确认才改镇，取消不修改，状态仍为待审核；未提交资质的 APP 申请由总后台二次确认注销，取消账号仍保留；确定后不可登录原账号，原手机号可重新申请。\n* 用户端申请改镇 → 小镇名称及客服电话同时更新；骑手 APP 已实名申请改镇 → 申请归属同步调整。\n* 两种来源审核通过 → 正式归属及各端已有归属展示均为新小镇。\n* 运营商 PC／APP 在列表或审核页停留期间，骑手被移出本镇 → 通过、拒绝均被阻止并显示指定提示，审核状态不变；刷新后按当前归属展示。\n* 骑手 APP 使用旧归属操作注销 → 阻止注销并显示指定提示，账户不注销；归属未变更按原流程处理。\n",
+  "documentViews": {
+    "common": "# 审核中骑手修改小镇归属\n\n版本：V1.0\n\n## 公共说明\n\n创建／修改：2026-11-20；适用端：总后台、用户端、骑手 APP、运营商 PC、运营商 APP；\n\n需求背景：待审核骑手也需要调整小镇归属，并避免运营商或骑手在归属已变更后继续按旧归属操作。\n\n本次改动：\n\n* 总后台对用户端申请、骑手 APP 已实名认证的待审核骑手提供【分配小镇】；APP 未提交资质的申请支持直接注销，注销后可重新申请。\n* 按申请来源同步归属，用户端同步显示新小镇及客服电话；审核通过后使用新归属。\n* 运营商 PC／APP 审核和骑手 APP 注销时增加归属校验及指定提示。\n\n列表展示：总后台骑手申请／骑手管理、运营商 PC／APP 骑手列表中的骑手手机号暂不脱敏，完整展示手机号。\n\n## 测试要点\n\n* 用户端申请、骑手 APP 已实名认证的待审核骑手 → 小镇列表可模糊查询、重置、分页；选择后二次确认才改镇，取消不修改，状态仍为待审核；未提交资质的 APP 申请由总后台二次确认注销，取消账号仍保留；确定后不可登录原账号，原手机号可重新申请。\n* 用户端申请改镇 → 小镇名称及客服电话同时更新；骑手 APP 已实名申请改镇 → 申请归属同步调整。\n* 两种来源审核通过 → 正式归属及各端已有归属展示均为新小镇。\n* 运营商 PC／APP 在列表或审核页停留期间，骑手被移出本镇 → 通过、拒绝均被阻止并显示指定提示，审核状态不变；刷新后按当前归属展示。\n* 骑手 APP 使用旧归属操作注销 → 阻止注销并显示指定提示，账户不注销；归属未变更按原流程处理。\n",
+    "backend": "# 审核中骑手修改小镇归属\n\n版本：V1.0\n\n## 公共说明\n\n创建／修改：2026-11-20；适用端：总后台、用户端、骑手 APP、运营商 PC、运营商 APP；\n\n需求背景：待审核骑手也需要调整小镇归属，并避免运营商或骑手在归属已变更后继续按旧归属操作。\n\n本次改动：\n\n* 总后台对用户端申请、骑手 APP 已实名认证的待审核骑手提供【分配小镇】；APP 未提交资质的申请支持直接注销，注销后可重新申请。\n* 按申请来源同步归属，用户端同步显示新小镇及客服电话；审核通过后使用新归属。\n* 运营商 PC／APP 审核和骑手 APP 注销时增加归属校验及指定提示。\n\n列表展示：总后台骑手申请／骑手管理、运营商 PC／APP 骑手列表中的骑手手机号暂不脱敏，完整展示手机号。\n\n## 后端调整\n\n### 待审核骑手分配小镇\n\n所属端：总后台；页面：骑手申请\n\n用户端申请或骑手 APP 已实名认证的待审核骑手可修改归属。\n\n#### 处理规则\n\n- 待审核骑手中，来源为“用户端申请”，或来源为“骑手APP注册”且已完成实名认证的骑手，允许修改小镇归属；操作权限沿用现有规则，可选择全部小镇；只有二次确认后才修改归属，取消不修改。修改成功后，“申请小镇”更新，状态仍为待审核。\n- 来源为“用户端申请”：同步调整该骑手申请的归属；用户端待审核详情中的“申请入职的小镇”及下方“小镇客服电话”均更新为新小镇对应信息。\n- 来源为“骑手APP注册”：同步调整该骑手在申请中的小镇归属；审核通过时，使用修改后的归属，不恢复为原申请小镇。\n- 两种来源的骑手审核通过后，正式骑手归属均以修改后的新小镇为准。\n\n\n### 运营商审核归属校验\n\n所属端：运营商 PC；页面：骑手审核\n\n运营商只能审核当前仍归属本小镇的骑手。\n\n#### 处理规则\n\n- 运营商 PC 和运营商 APP 审核骑手时，均需校验骑手当前是否仍归属本次操作的小镇；\n- 如果骑手已不归属本小镇，阻止本次审核，提示“骑手小镇归属变更，请刷新后重试”，不改变骑手审核状态；\n- 刷新后按当前小镇归属重新展示骑手列表；仍归属本小镇的骑手沿用原有审核规则。\n\n\n### 骑手 APP 注销归属校验\n\n所属端：骑手 APP；页面：注销账户\n\n归属变更后，阻止基于原归属发起的注销。\n\n#### 处理规则\n\n- 骑手 APP 操作【注销账户】时，若骑手当前归属与本次操作所使用的小镇归属不一致，阻止本次注销，提示“骑手归属变更，请刷新后重试”，账户保持原状态；归属未变更时沿用原注销规则。\n\n\n### 未提交资质的 APP 申请注销\n\n所属端：总后台；页面：骑手申请\n\n总后台确认注销未提交资质的 APP 申请账号，允许重新申请。\n\n#### 处理规则\n\n- 待审核骑手来源为“骑手APP注册”且未提交资质信息时，总后台【骑手申请】列表可注销该骑手账号；二次确认后才执行注销，取消不注销。\n- 注销成功后，该账号不可登录骑手APP，本次申请结束；骑手可以使用原手机号重新申请，不因原账号已申请而被拦截。\n\n\n\n## 测试要点\n\n* 用户端申请、骑手 APP 已实名认证的待审核骑手 → 小镇列表可模糊查询、重置、分页；选择后二次确认才改镇，取消不修改，状态仍为待审核；未提交资质的 APP 申请由总后台二次确认注销，取消账号仍保留；确定后不可登录原账号，原手机号可重新申请。\n* 用户端申请改镇 → 小镇名称及客服电话同时更新；骑手 APP 已实名申请改镇 → 申请归属同步调整。\n* 两种来源审核通过 → 正式归属及各端已有归属展示均为新小镇。\n* 运营商 PC／APP 在列表或审核页停留期间，骑手被移出本镇 → 通过、拒绝均被阻止并显示指定提示，审核状态不变；刷新后按当前归属展示。\n* 骑手 APP 使用旧归属操作注销 → 阻止注销并显示指定提示，账户不注销；归属未变更按原流程处理。\n",
+    "frontend": "# 审核中骑手修改小镇归属\n\n版本：V1.0\n\n## 公共说明\n\n创建／修改：2026-11-20；适用端：总后台、用户端、骑手 APP、运营商 PC、运营商 APP；\n\n需求背景：待审核骑手也需要调整小镇归属，并避免运营商或骑手在归属已变更后继续按旧归属操作。\n\n本次改动：\n\n* 总后台对用户端申请、骑手 APP 已实名认证的待审核骑手提供【分配小镇】；APP 未提交资质的申请支持直接注销，注销后可重新申请。\n* 按申请来源同步归属，用户端同步显示新小镇及客服电话；审核通过后使用新归属。\n* 运营商 PC／APP 审核和骑手 APP 注销时增加归属校验及指定提示。\n\n列表展示：总后台骑手申请／骑手管理、运营商 PC／APP 骑手列表中的骑手手机号暂不脱敏，完整展示手机号。\n\n## 前端 UI 调整\n\n### 待审核骑手分配小镇\n\n所属端：总后台；页面：骑手申请\n\n用户端申请或骑手 APP 已实名认证的待审核骑手可修改归属。\n\n#### 入口、展示与操作\n\n- 总后台骑手管理页签顺序：骑手管理、骑手申请、骑手资金管理、保险管理；【骑手申请】紧随【骑手管理】。\n- 入口：总后台 → 小镇管理 → 骑手管理 → 骑手申请。符合改镇条件的待审核记录显示【分配小镇】，点击打开【选择小镇】弹窗。\n- 弹窗默认展示全部小镇，字段为ID、小镇名称、所属区域、操作；数据量较多时分页展示。输入小镇名称可模糊查询，点击【查询】展示匹配结果；点击【重置】清空条件并恢复全部小镇。\n- 每行提供【选择】。点击后弹出二次确认：“是否将骑手从【原小镇名称】更换到【目标小镇名称】？”原小镇取骑手当前归属，目标小镇取所选行。\n- 点击【确认】后执行更换，成功提示“操作成功”，关闭弹窗并更新列表；点击【取消】只关闭二次确认弹窗，不修改归属。选择小镇弹窗右上角【关闭】退出本次操作。\n\n\n### 用户端申请小镇展示\n\n所属端：用户端；页面：申请骑手 · 待审核\n\n用户端申请的骑手看到新的申请小镇。\n\n#### 入口、展示与操作\n\n- 用户端 → 申请骑手 → 待审核详情：重新进入或刷新页面后，“申请入职的小镇”和下方“小镇客服电话”均显示新小镇对应信息。\n- 页面继续显示“待审核...”；姓名、联系电话和撤回申请等已有展示与操作沿用原规则。\n\n\n### 骑手 APP 审核中页面\n\n所属端：骑手 APP；页面：完善信息 · 审核中\n\n申请归属调整后，保持现有审核中提示。\n\n#### 入口、展示与操作\n\n- 骑手 APP 注册来源：后台修改申请归属后，页面保持“通过实名认证，等待审核中”的现有提示。\n- 审核通过后按“待审核骑手分配小镇”规则使用新归属。\n\n\n### 审核通过后的归属展示\n\n所属端：总后台；页面：骑手管理\n\n审核通过后，骑手管理显示修改后的所属小镇。\n\n#### 入口、展示与操作\n\n- 骑手审核通过后，总后台【骑手管理】列表的“所属小镇”以及骑手端已有归属展示位置均显示新小镇；【骑手管理】栏目，分配小镇的时候，需要二次确认交互，同【骑手审核】界面一样。\n\n\n### 运营商审核归属校验\n\n所属端：运营商 PC；页面：骑手审核\n\n运营商只能审核当前仍归属本小镇的骑手。\n\n#### 入口、展示与操作\n\n- 运营商 PC → 配送管理 → 骑手管理 → 骑手审核：如果骑手归属变更了，操作审核的时候提示：骑手小镇归属变更，请刷新后重试；刷新之后，列表对应骑手数据不显示\n\n\n### 运营商 APP 审核提示\n\n所属端：运营商 APP；页面：待审核骑手\n\n运营商 APP 使用相同归属校验和提示。\n\n#### 入口、展示与操作\n\n- 运营商 APP → 骑手管理 → 待审核：如果骑手归属变更了，操作审核的时候提示：骑手小镇归属变更，请刷新后重试；刷新之后，列表对应骑手数据不显示\n\n\n### 骑手 APP 注销归属校验\n\n所属端：骑手 APP；页面：注销账户\n\n归属变更后，阻止基于原归属发起的注销。\n\n#### 入口、展示与操作\n\n- 入口：骑手 APP 侧边菜单 →【注销账户】。归属校验失败时展示“骑手归属变更，请刷新后重试”；不将本次失败展示为注销成功。刷新之后，获取最新的骑手小镇归属\n\n\n### 未提交资质的 APP 申请注销\n\n所属端：总后台；页面：骑手申请\n\n总后台确认注销未提交资质的 APP 申请账号，允许重新申请。\n\n#### 入口、展示与操作\n\n- 未提交资质的 APP 申请在操作列显示【注销】；该分支不使用【分配小镇】。点击【注销】弹出二次确认：“是否注销【骑手手机号】骑手账号，注销之后骑手不可登录APP？”其中手机号完整展示，替换为当前行的实际手机号。\n- 弹窗提供【确定】【取消】。点击【确定】执行注销，成功后提示“注销成功”，关闭弹窗并刷新列表；点击【取消】关闭弹窗，不注销账号，不改变本次申请。\n\n\n\n## 测试要点\n\n* 用户端申请、骑手 APP 已实名认证的待审核骑手 → 小镇列表可模糊查询、重置、分页；选择后二次确认才改镇，取消不修改，状态仍为待审核；未提交资质的 APP 申请由总后台二次确认注销，取消账号仍保留；确定后不可登录原账号，原手机号可重新申请。\n* 用户端申请改镇 → 小镇名称及客服电话同时更新；骑手 APP 已实名申请改镇 → 申请归属同步调整。\n* 两种来源审核通过 → 正式归属及各端已有归属展示均为新小镇。\n* 运营商 PC／APP 在列表或审核页停留期间，骑手被移出本镇 → 通过、拒绝均被阻止并显示指定提示，审核状态不变；刷新后按当前归属展示。\n* 骑手 APP 使用旧归属操作注销 → 阻止注销并显示指定提示，账户不注销；归属未变更按原流程处理。\n"
+  }
+}</script>
+<script>
+'use strict';
+const embeddedReview = JSON.parse(document.getElementById('review-source').textContent);
+const reviewData = embeddedReview;
+const towns=[
+ {id:104,name:'八千小镇外卖',region:'河南省郑州市新郑市',phone:'13200001111'},
+ {id:1308,name:'胡家小镇外卖',region:'示例区域',phone:'13200002222'},
+ {id:1310,name:'罗村小镇外卖',region:'示例区域',phone:'13200003333'},
+ {id:9,name:'辛店外卖',region:'河南省郑州市新郑市',phone:'13200000009'},
+ {id:2282,name:'应用市场测试小镇',region:'河南省郑州市管城回族区',phone:'13200002282'},
+ {id:1307,name:'小胡子小镇外卖',region:'安徽省淮北市濉溪县',phone:'13200001307'},
+ {id:1612,name:'龙王小镇外卖',region:'河南省郑州市新郑市',phone:'13200001612'},
+ {id:1593,name:'贾峪小镇外卖',region:'河南省郑州市荥阳市',phone:'13200001593'},
+ {id:1595,name:'褚河小镇外卖',region:'河南省许昌市禹州市',phone:'13200001595'},
+ {id:2401,name:'东城示例小镇',region:'示例区域',phone:'13200002401'},
+ {id:2402,name:'西城示例小镇',region:'示例区域',phone:'13200002402'},
+ {id:2403,name:'南城示例小镇',region:'示例区域',phone:'13200002403'}
+];
+const riderSeed=[{id:'user',name:'李明',phone:'13800000001',source:'用户端申请',town:towns[0].name,status:'待审核',time:'2026-11-20 09:59:43'},{id:'rider',name:'段安',phone:'13800000002',source:'骑手APP注册',town:towns[0].name,status:'待审核',time:'2026-11-20 09:46:48'},{id:'active',name:'岳示例',phone:'13800000003',source:'骑手APP注册',town:towns[0].name,status:'审核通过',time:'2026-11-19 10:10:00'}];
+riderSeed[1].realNamed=true;
+riderSeed.push({id:'unqualified',name:'陈示例',phone:'13800000004',source:'骑手APP注册',town:towns[0].name,status:'待审核',qualificationSubmitted:false,time:'2026-11-20 10:20:00'});
+const assignAllowed=r=>r.status==='待审核'&&(r.source==='用户端申请'||r.realNamed===true);
+const canCloseUnqualified=r=>r.status==='待审核'&&r.source==='骑手APP注册'&&r.qualificationSubmitted===false;
+let demo;
+function resetRiderDemo(){demo={rows:structuredClone(riderSeed),editing:'',draft:'',townQuery:'',townFilter:'',townPage:1,townPageSize:10,townConfirm:false,review:null,query:'',source:'全部',status:'全部',tab:'applications',opTown:towns[0].name,opPC:structuredClone(riderSeed.slice(0,2)),opAPP:structuredClone(riderSeed.slice(0,2)),sessionTown:towns[0].name,closeNotice:'',reapplyAllowed:false,closingId:''};}
+resetRiderDemo();
+const getRider=id=>demo.rows.find(r=>r.id===id);
+const badge=s=>'<span class="rt-badge '+(s==='审核通过'?'ok':'')+'">'+esc(s)+'</span>';
+function adminPage(approved=false){
+ const rows=demo.rows.filter(r=>approved?r.status==='审核通过':r.id!=='active').filter(r=>(!demo.query||r.name.includes(demo.query)||r.phone.includes(demo.query))&&(demo.source==='全部'||r.source===demo.source)&&(demo.status==='全部'||r.status===demo.status));
+ return `<div class="rt-admin"><div class="rt-topbar"><b>小镇外卖</b><span>小镇管理 / 骑手管理</span></div><nav class="rt-tabs"><button data-action="admin-page" data-page="approved" class="${approved?'on':''}">骑手管理</button><button data-action="admin-page" data-page="applications" class="${approved?'':'on'}">骑手申请</button><span>骑手资金管理</span><span>保险管理</span></nav><div class="rt-filters"><label>骑手名称<input data-business="query" value="${esc(demo.query)}" placeholder="请输入骑手名称"></label><label>申请来源<select data-business="source">${['全部','用户端申请','骑手APP注册'].map(v=>`<option ${v===demo.source?'selected':''}>${v}</option>`).join('')}</select></label><label>申请状态<select data-business="status">${['全部','待审核','审核通过','已拒绝'].map(v=>`<option ${v===demo.status?'selected':''}>${v}</option>`).join('')}</select></label><button data-action="admin-query">查询</button><button class="secondary" data-action="admin-reset">重置</button></div><div class="rt-table rv-hotspot" data-req="${approved?'approved-town':'rider-assign'}"><table><thead><tr><th>骑手姓名</th><th>手机号</th><th>来源</th><th>${approved?'所属小镇':'申请小镇'}</th><th>申请时间</th><th>申请状态</th><th>操作</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${esc(r.name)}</td><td>${esc(r.phone)}</td><td>${esc(r.source)}</td><td class="rt-town">${esc(r.town)}</td><td>${esc(r.time)}</td><td>${badge(r.status)}</td><td>${assignAllowed(r)||approved?`<button class="link" data-action="assign" data-id="${r.id}">分配小镇</button>`:canCloseUnqualified(r)?`<span class="rt-unqualified rv-hotspot" data-req="unqualified-close"><span class="rt-qualification">未提交资质</span><button class="link" data-action="admin-close" data-id="${r.id}">注销</button></span>`:'—'}</td></tr>`).join('')||'<tr><td colspan="7">暂无数据</td></tr>'}</tbody></table></div>${assignModal(approved)}${approved?'':adminCloseModal()}</div><div class="rt-demo-control"><b>联动演示</b><span>先分配小镇，再切换用户端、骑手 APP 或运营商端核对。使用模拟资料。</span>${!approved?`${demo.reapplyAllowed?'<p>未提交资质的账号已注销，可使用原手机号重新申请。</p><button data-action="demo-reapply">模拟原手机号重新申请</button>':''}`:''}</div>`;
+}
+function openTownPicker(id){demo.editing=id;demo.draft='';demo.townQuery='';demo.townFilter='';demo.townPage=1;demo.townConfirm=false;renderCanvas();}
+function townPickerRows(){return towns.filter(t=>!demo.townFilter||t.name.includes(demo.townFilter));}
+function assignModal(approved){
+ const r=getRider(demo.editing);if(!r||approved!==(r.status==='审核通过'))return '';
+ const matches=townPickerRows(),pageCount=Math.max(1,Math.ceil(matches.length/demo.townPageSize));
+ demo.townPage=Math.min(Math.max(1,demo.townPage),pageCount);
+ const items=matches.slice((demo.townPage-1)*demo.townPageSize,demo.townPage*demo.townPageSize);
+ const req=approved?'approved-town':'rider-assign';
+ return `<div class="rt-overlay rt-picker-overlay"><section class="rt-dialog rt-town-picker rv-hotspot" data-req="${req}" role="dialog" aria-modal="true" aria-label="选择小镇"><header class="rt-picker-heading"><h3>选择小镇</h3><button class="rt-picker-close" data-action="assign-cancel" aria-label="关闭选择小镇">×</button></header><div class="rt-town-query"><input id="town-search" data-business="town-search" aria-label="小镇名称" placeholder="请输入小镇名称" value="${esc(demo.townQuery)}"><div><button class="secondary" data-action="town-reset">重置</button><button data-action="town-query">查询</button></div></div><div class="rt-town-table"><table><thead><tr><th>ID</th><th>小镇名称</th><th>所属区域</th><th>操作</th></tr></thead><tbody>${items.map(t=>`<tr><td>${t.id}</td><td>${esc(t.name)}</td><td>${esc(t.region)}</td><td><button class="link" data-action="town-select" data-town-id="${t.id}" aria-label="选择${esc(t.name)}">选择</button></td></tr>`).join('')||'<tr><td colspan="4" class="rt-town-empty">暂无数据</td></tr>'}</tbody></table></div><footer class="rt-town-pages"><span>共 ${matches.length} 条数据</span><button class="rt-page" data-action="town-page" data-page="${demo.townPage-1}" ${demo.townPage===1?'disabled':''} aria-label="上一页小镇">‹</button>${Array.from({length:pageCount},(_,i)=>`<button class="rt-page ${i+1===demo.townPage?'current':''}" data-action="town-page" data-page="${i+1}" aria-label="小镇第${i+1}页" ${i+1===demo.townPage?'aria-current="page"':''}>${i+1}</button>`).join('')}<button class="rt-page" data-action="town-page" data-page="${demo.townPage+1}" ${demo.townPage===pageCount?'disabled':''} aria-label="下一页小镇">›</button><select data-business="town-page-size" aria-label="每页小镇数量">${[10,20,50].map(n=>`<option value="${n}" ${demo.townPageSize===n?'selected':''}>${n} 条/页</option>`).join('')}</select></footer>${demo.townConfirm?`<div class="rt-confirm-layer"><section class="rt-town-confirm" role="alertdialog" aria-modal="true" aria-label="确认更换小镇"><h3>更换小镇</h3><p>是否将骑手从<strong>${esc(r.town)}</strong>更换到<strong>${esc(demo.draft)}</strong>？</p><footer><button class="secondary" data-action="town-confirm-cancel">取消</button><button data-action="town-confirm">确认</button></footer></section></div>`:''}</section></div>`;
+}
+function phoneShell(title,content,cls=''){return `<div class="rt-phone ${cls}"><div class="rt-phone-status">12:00 <span>▰ ▰ ▰</span></div><header class="rt-phone-header">‹ <b>${title}</b></header>${content}</div>`;}
+function userPage(){const r=getRider('user'),t=towns.find(t=>t.name===r.town);return phoneShell('申请骑手',`<div class="rt-user-content"><section class="rt-user-card"><div class="rt-clock">${r.status==='审核通过'?'✓':'◷'}</div><p class="rt-state">${r.status==='审核通过'?'审核通过':r.status==='已拒绝'?'已拒绝':'待审核...'}</p><h4>信息详情</h4><div class="rt-fields rv-hotspot" data-req="user-town"><p><b>申请入职的小镇 <i>*</i></b><span id="user-town">${esc(r.town)}</span></p><p><b>骑手真实姓名 <i>*</i></b><span>${esc(r.name)}</span></p><p><b>骑手联系电话 <i>*</i></b><span>${esc(r.phone)}</span></p></div><p class="rt-phone-help">如有疑问，请拨打小镇客服电话 <strong id="town-phone">${t.phone}</strong></p></section>${r.status==='待审核'?'<button class="rt-wide" data-action="original-withdraw">撤回申请</button>':''}</div>`);}
+function riderPendingPage(){const r=getRider('rider');return phoneShell('完善信息',`<div class="rt-steps">✓ 提交信息 <span>● 实名认证</span></div><div class="rt-rider-wait rv-hotspot" data-req="rider-pending"><div class="rt-shield">✓</div><p>${r.status==='审核通过'?'审核已通过':r.status==='已拒绝'?'审核未通过':'通过实名认证，<em>等待审核中</em>'}</p>${r.status==='审核通过'?`<p class="rt-approved-town">所属小镇：${esc(r.town)}</p>`:''}</div><button class="rt-exit" data-action="original-logout">退出登录</button>`);}
+function operatorPage(mobile=false){
+ const snapshots=mobile?demo.opAPP:demo.opPC,req=mobile?'operator-app-guard':'operator-pc-guard',end=mobile?'operator-app':'operator-pc';
+ const body=mobile?`<div class="rt-op-mobile"><nav><span>已通过</span><b>待审核</b><span>已拒绝</span></nav><div class="rv-hotspot" data-req="operator-app-guard">${snapshots.filter(r=>r.status==='待审核').map(r=>`<article><b>${esc(r.name)}</b><button class="link" aria-label="审核${esc(r.name)}" data-action="review-open" data-id="${r.id}" data-end="${end}" data-result="审核通过">✎</button><p>☎ ${esc(r.phone)}</p><time>${r.time}</time></article>`).join('')||'<p class="rt-empty">暂无待审核骑手</p>'}</div><p class="rt-empty">没有更多了</p></div>`:`<div class="rt-admin rt-operator"><div class="rt-topbar"><b>小镇外卖</b><span>配送管理 / 骑手管理</span></div><nav class="rt-tabs"><span>骑手管理</span><b class="on">骑手审核</b><span>骑手工资模板</span></nav><div class="rt-table rv-hotspot" data-req="operator-pc-guard"><table><thead><tr><th>骑手姓名</th><th>骑手手机号</th><th>申请时间</th><th>审核状态</th><th>操作</th></tr></thead><tbody>${snapshots.map(r=>`<tr><td>${esc(r.name)}</td><td>${esc(r.phone)}</td><td>${r.time}</td><td>${badge(r.status)}</td><td>${r.status==='待审核'?`<button class="link" data-action="review-open" data-id="${r.id}" data-end="${end}" data-result="审核通过">审核</button><button class="link" data-action="review-open" data-id="${r.id}" data-end="${end}" data-result="已拒绝">拒绝</button>`:'—'}</td></tr>`).join('')||'<tr><td colspan="5">暂无待审核骑手</td></tr>'}</tbody></table></div></div>`;
+ const review=demo.review?.end===end?`<div class="rt-overlay"><section class="rt-dialog rv-hotspot" data-req="${req}" role="dialog" aria-modal="true" aria-label="审核确认"><h3>${demo.review.result==='已拒绝'?'拒绝骑手':'审核骑手'}</h3><p>骑手：${esc(getRider(demo.review.id).name)}</p><p>当前操作小镇：${esc(demo.opTown)}</p><footer><button class="secondary" data-action="review-cancel">取消</button><button data-action="review-submit">${demo.review.result==='已拒绝'?'确认拒绝':'审核通过'}</button></footer></section></div>`:'';
+ const inner=`<div class="rt-op-body">${body}${review}</div>`;
+ return `${mobile?phoneShell('骑手管理',inner,'rt-operator-phone'):inner}<div class="rt-demo-control"><b>演示控制 · 当前小镇：${demo.opTown}</b><span>列表保留上次读取结果。可先打开审核，再到总后台修改小镇，返回后提交。</span><button data-action="operator-refresh" data-end="${end}">刷新本镇列表</button></div>`;
+}
+function riderClosePage(){const r=getRider('active');return phoneShell('个人中心',`<div class="rt-drawer rv-hotspot" data-req="rider-close-guard"><div class="rt-profile"><span>🛵</span><b>${r.name}</b><small>抢单模式</small></div><div class="rt-shortcuts">保险管理　　我的工资　　我的战绩</div>${['骑手状态','工作状态','荣誉榜单','我的评价','消息通知','帮助中心','联系客服'].map(s=>`<div class="rt-menu">${s}<span>›</span></div>`).join('')}<button class="rt-menu rt-close" data-action="account-close">♙ 注销账户 <span>›</span></button><p class="rt-menu-result" role="status">${esc(demo.closeNotice)}</p></div><button class="rt-exit" data-action="original-logout">退出</button>`)+`<div class="rt-demo-control"><b>注销校验演示</b><span>当前登录骑手：${r.name}；打开页面时小镇：${demo.sessionTown}。在总后台“骑手管理”中为该骑手分配新小镇，再点击注销。</span><button data-action="account-refresh">刷新归属</button></div>`;}
+const pageMarkup={applications:()=>adminPage(false),approved:()=>adminPage(true),'user-pending':userPage,'rider-pending':riderPendingPage,'operator-pc-review':()=>operatorPage(false),'operator-app-review':()=>operatorPage(true),'rider-close':riderClosePage};
+
+function adminCloseModal(){const r=getRider(demo.closingId);if(!r)return '';return `<div class="rt-overlay"><section class="rt-dialog rv-hotspot" data-req="unqualified-close" role="alertdialog" aria-modal="true" aria-label="注销骑手账号"><h3>注销骑手账号</h3><p>是否注销【${esc(r.phone)}】骑手账号，注销之后骑手不可登录APP？</p><footer><button class="secondary" data-action="admin-close-cancel">取消</button><button data-action="admin-close-confirm">确定</button></footer></section></div>`;}
+
+const ReviewDocument=(()=>{
+ const escape=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ function safeHref(href){
+  if(!href||/[\u0000-\u001f\u007f\\]/.test(href)||/^(?:\/\/|\/)/.test(href))return false;
+  if(/^[a-z][a-z0-9+.-]*:/i.test(href))return /^https?:\/\/[^\s]+$/i.test(href);
+  return true;
+ }
+ function inline(text){
+  const token=/\x60([^\x60]+)\x60|\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*/g;
+  let out='',last=0;
+  for(const m of text.matchAll(token)){
+   out+=escape(text.slice(last,m.index));
+   if(m[1]!==undefined)out+='<code>'+escape(m[1])+'</code>';
+   else if(m[2]!==undefined){const href=m[3].trim();out+=safeHref(href)?'<a href="'+escape(href)+'"'+(/^https?:/i.test(href)?' target="_blank" rel="noopener"':'')+'>'+escape(m[2])+'</a>':escape(m[2]);}
+   else out+='<strong>'+escape(m[4])+'</strong>';
+   last=m.index+m[0].length;
+  }
+  return out+escape(text.slice(last));
+ }
+ function slug(text){return text.toLowerCase().replace(/[\x60*_]/g,'').replace(/[^\p{L}\p{N}\s-]/gu,'').trim().replace(/\s+/g,'-');}
+ function render(md){
+  const lines=md.replace(/\r/g,'').split('\n'),seen=new Map();let out='',code=false,block=[],list='';
+  const close=()=>{if(list){out+='</'+list+'>';list='';}};
+  for(let i=0;i<lines.length;i++){
+   const line=lines[i];if(line.startsWith('\x60\x60\x60')){close();if(code){out+='<pre><code>'+escape(block.join('\n'))+'</code></pre>';block=[];}code=!code;continue;}
+   if(code){block.push(line);continue;}
+   if(!line.trim()){close();continue;}
+   if(/^\|/.test(line)&&/^\|\s*:?-+/.test(lines[i+1]||'')){
+    close();const cells=t=>t.replace(/^\||\|$/g,'').split('|').map(s=>s.trim());
+    out+='<div class="md-table"><table><thead><tr>'+cells(line).map(c=>'<th>'+inline(c)+'</th>').join('')+'</tr></thead><tbody>';i++;
+    while(/^\|/.test(lines[i+1]||'')){out+='<tr>'+cells(lines[++i]).map(c=>'<td>'+inline(c)+'</td>').join('')+'</tr>';}out+='</tbody></table></div>';continue;
+   }
+   const h=line.match(/^(#{1,6})\s+(.+)/);if(h){close();const base=slug(h[2]),n=seen.get(base)||0;seen.set(base,n+1);out+='<h'+h[1].length+' data-md-anchor="'+escape(base+(n?'-'+n:''))+'">'+inline(h[2])+'</h'+h[1].length+'>';continue;}
+   const item=line.match(/^(?:([-*]) |(\d+)\. )(.+)/);
+   if(item){const type=item[2]?'ol':'ul';if(list!==type){close();list=type;out+='<'+type+(item[2]?' start="'+Number(item[2])+'"':'')+'>';}out+='<li>'+inline(item[3])+'</li>';continue;}
+   close();out+=(line.startsWith('> ')?'<blockquote>'+inline(line.slice(2))+'</blockquote>':'<p>'+inline(line)+'</p>');
+  }
+  close();if(code)out+='<pre><code>'+escape(block.join('\n'))+'</code></pre>';return out;
+ }
+ return {render};
+})();
+// 文档阅读能力来自现有项目，分类由配置或页面生成，不携带项目专属前缀。
+const documentState={on:false,category:'all',source:false};
+function documentGroups(){return [{id:'all',name:'完整 PRD',hint:'完整需求与共享说明'},
+ {id:'common',name:'公共说明',hint:'范围、流程、跨端规则与待确认项'},
+ {id:'backend',name:'后端功能规则',hint:'公共说明与业务规则'},
+ {id:'frontend',name:'前端 UI 与交互',hint:'公共说明与界面交互'},
+ ...(reviewData.documentGroups||reviewData.pages.map(p=>({id:'page:'+p.id,name:endName(p.end)+' · '+p.name,hint:'页面相关规则、边界与验收',requirementIds:reviewData.requirements.filter(r=>r.page===p.id).map(r=>r.id)})))];}
+function renderRequirement(r, endName, pageName, audience='all', level=2) {
+ const heading=(name,depth=0)=>'#'.repeat(Math.min(level+depth,6))+' '+name+'\n\n';
+ const list=values=>(values||[]).map(v=>'- '+v).join('\n')+'\n';
+ const legacy=r.legacyUnclassified??!(r.common||r.backend||r.frontend);
+ let body='';
+ const section=(name,part)=>{
+  if(!part)return '';
+  let out='';
+  for(const [key,label] of [['rules','规则'],['exceptions','异常与边界'],['acceptance','关键验证']])
+   if(part[key]?.length){const title=key==='rules'?(name==='后端功能规则'?'处理规则':name==='前端 UI 与交互'?'入口、展示与操作':name):label;out+=(audience==='all'?'**'+title+'**\n\n':heading(title,1))+list(part[key])+'\n';}
+  return out?(audience==='all'?heading(name,1)+out:out):'';
+ };
+ if((r.rules?.length||r.exceptions?.length||r.acceptance?.length))
+  body+=section(legacy?'旧格式未分类，需结合全文确认':'共用规则',r);
+ body+=section('共用规则',r.common);
+ for(const role of ['backend','frontend'])if(audience==='all'||audience===role)
+  body+=section(role==='backend'?'后端功能规则':'前端 UI 与交互',r[role]);
+ for(const c of r.cases||[])if(audience==='all'||!c.audience||c.audience==='all'||c.audience===audience)
+  body+=heading('验证场景：'+c.name,1)+'前置条件：'+(c.precondition||'无额外条件')+'\n\n'+c.steps.map((s,i)=>(i+1)+'. '+s).join('\n')+'\n\n预期结果：'+c.expected+'\n\n';
+ if(r.development?.length)body+=heading('共用研发说明',1)+list(r.development)+'\n';
+ if(!body.trim())return '';
+ return heading(r.title)+'所属端：'+endName(r.end)+'；页面：'+pageName(r.page)+'\n\n'+r.summary+'\n\n'+body;
+}
+function requirementMarkdown(r,audience='all',level=3){return renderRequirement(r,endName,pageName,audience,level);}
+function documentMarkdown(category=documentState.category){
+ const group=documentGroups().find(g=>g.id===category);
+ const shared=reviewData.shared.map(s=>'### '+s.title+'\n\n'+s.text+'\n').join('\n');
+ const common=reviewData.requirements.map(r=>{
+  const item={...r,backend:undefined,frontend:undefined,legacyUnclassified:r.legacyUnclassified??!(r.common||r.backend||r.frontend)};
+  item.cases=(r.cases||[]).filter(c=>!c.audience||c.audience==='all');
+  return requirementMarkdown(item,'common');
+ }).filter(Boolean).join('\n');
+ const roleBody=role=>reviewData.requirements.map(r=>{
+  const item={...r,common:undefined,rules:[],exceptions:[],acceptance:[],development:[]};
+  item.cases=(r.cases||[]).filter(c=>c.audience===role);
+  return requirementMarkdown(item,role);
+ }).filter(Boolean).join('\n');
+ const chapter=(title,body)=>body.trim()?'## '+title+'\n\n'+body+'\n':'';
+ const publicBody=chapter('公共说明',shared+'\n'+common);
+ const title='# '+reviewData.title+' PRD\n\n版本：'+reviewData.version+'\n\n';
+ if(category==='all')return reviewData.documentMarkdown||title+publicBody+chapter('后端功能规则',roleBody('backend'))+chapter('前端 UI 与交互',roleBody('frontend'));
+ if(category==='common')return reviewData.documentViews?.common||title+publicBody;
+ if(category==='backend'||category==='frontend')return reviewData.documentViews?.[category]||title+publicBody+chapter(group.name,roleBody(category));
+ if(!group)return '';
+ return group.markdown||'# '+group.name+'\n\n'+(group.hint||'')+'\n\n## 功能需求\n\n'+reviewData.requirements.filter(r=>group.requirementIds?.includes(r.id)).map(r=>requirementMarkdown(r)).join('\n');
+}
+function refreshDocument(){
+ const groups=documentGroups(),group=groups.find(g=>g.id===documentState.category)||groups[0];documentState.category=group.id;
+ $('md-title').textContent=group.name;$('md-hint').textContent=group.hint||'';
+ $('md-categories').innerHTML=groups.map(g=>`<button type="button" data-category="${esc(g.id)}" aria-pressed="${g.id===group.id}">${esc(g.name)}</button>`).join('');
+ const md=documentMarkdown(),q=$('md-search').value.trim().toLowerCase();
+ const blocks=q?md.split(/(?=^## )/m).filter(b=>b.toLowerCase().includes(q)):null;
+ const shown=q?(blocks.length?blocks.join('\n'):'未找到符合条件的内容。'):md;
+ $('md-content').innerHTML=documentState.source?'<pre class="md-source">'+esc(shown)+'</pre>':ReviewDocument.render(shown);
+ $('md-source-toggle').textContent=documentState.source?'阅读文档':'查看 Markdown 源码';
+ const heads=[...$('md-content').querySelectorAll('h1,h2,h3,h4,h5,h6')];heads.forEach((h,i)=>h.id='md-section-'+i);
+ $('md-toc').innerHTML=documentState.source?'':heads.map((h,i)=>`<button type="button" data-md-section="${i}" class="level-${h.tagName.toLowerCase()}">${esc(h.textContent)}</button>`).join('');
+ $('md-result').textContent=q?'当前关键词：'+$('md-search').value+'；下载保留本分类全部内容。':'下载保留当前分类完整内容。';
+ $('md-section-jump').innerHTML='<option value="">跳转章节…</option>'+heads.map((h,i)=>`<option value="${i}">${esc(h.textContent)}</option>`).join('');
+}
+function showReviewDocument(on){documentState.on=on;document.body.classList.toggle('viewing-markdown',on);$('review-document').hidden=!on;$('workspace').hidden=on;document.querySelector('.rv-context').hidden=on;document.querySelector('.rv-tools').hidden=on;if(on){hoverId='';refreshDocument();}renderNav();scheduleLine();}
+function enterDocument(category='all',{push=true}={}){if(!documentGroups().some(g=>g.id===category)){notify('该文档分类不存在，已打开完整 PRD。');category='all';}documentState.category=category;showReviewDocument(true);if(push)pushHash('#document='+encodeURIComponent(category));}
+function downloadDocument(category){
+ const group=documentGroups().find(g=>g.id===category);if(!group)return;
+ const content=documentMarkdown(category),url=URL.createObjectURL(new Blob([content],{type:'text/markdown;charset=utf-8'})),a=document.createElement('a');a.href=url;a.download=(reviewData.title+'_'+group.name).replace(/[<>:"/\\|?*]/g,'_')+'.md';a.click();setTimeout(()=>URL.revokeObjectURL(url),1500);
+}
+function locateDocumentHeading(index){const target=$('md-section-'+index);if(target)target.scrollIntoView({block:'start',behavior:motion()});}
+function bindDocumentControls(){
+ $('md-content').addEventListener('click',e=>{
+  const link=e.target.closest('a[href^="#"]');if(!link)return;
+  const hash=link.getAttribute('href');if(/^#(?:req|end|document)=/.test(hash))return;
+  e.preventDefault();let anchor;try{anchor=decodeURIComponent(hash.slice(1));}catch{return notify('文档锚点格式无效。');}
+  const target=[...$('md-content').querySelectorAll('[data-md-anchor]')].find(h=>h.dataset.mdAnchor===anchor||h.id===anchor);
+  if(target)target.scrollIntoView({block:'start',behavior:motion()});else notify('当前文档中未找到该章节，可清除搜索或查看完整 PRD。');
+ });
+ $('md-categories').addEventListener('click',e=>{const b=e.target.closest('[data-category]');if(!b)return;documentState.category=b.dataset.category;$('md-search').value='';refreshDocument();pushHash('#document='+encodeURIComponent(documentState.category));$('md-reading').scrollTop=0;});
+ $('md-toc').addEventListener('click',e=>{const b=e.target.closest('[data-md-section]');if(b)locateDocumentHeading(b.dataset.mdSection);});
+ $('md-section-jump').addEventListener('change',e=>{if(e.target.value!=='')locateDocumentHeading(e.target.value);});
+ $('md-search').addEventListener('input',refreshDocument);$('md-clear').addEventListener('click',()=>{$('md-search').value='';refreshDocument();$('md-search').focus();});
+ $('md-source-toggle').addEventListener('click',()=>{documentState.source=!documentState.source;refreshDocument();});
+ $('md-download').addEventListener('click',()=>downloadDocument(documentState.category));$('md-download-all').addEventListener('click',()=>downloadDocument('all'));
+ $('md-return').addEventListener('click',()=>{showReviewDocument(false);pushHash(selectedId?'#req='+encodeURIComponent(selectedId):'#end='+encodeURIComponent(currentEnd)+(currentPage==='all'?'':'&page='+encodeURIComponent(currentPage)));});
+}
+// 评审交互；业务数据和状态适配与评审壳分开维护。
+let currentEnd='all',currentPage='all',selectedId='',hoverId='',lens='all',view='review',toastTimer,lineFrame;
+
+const $=id=>document.getElementById(id);
+const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const reqById=id=>reviewData.requirements.find(r=>r.id===id);
+const endName=id=>reviewData.ends.find(e=>e.id===id)?.name||id;
+const pageName=id=>reviewData.pages.find(p=>p.id===id)?.name||id;
+const narrow=()=>matchMedia('(max-width:860px)').matches;
+const motion=()=>matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth';
+function notify(message){clearTimeout(toastTimer);$('toast').textContent=message;toastTimer=setTimeout(()=>$('toast').textContent='',3500);}
+function scopedRequirements(){return reviewData.requirements.filter(r=>(currentEnd==='all'||r.end===currentEnd)&&(currentPage==='all'||r.page===currentPage));}
+function matchesSearch(r,q){return [r.id,r.title,r.summary,...(r.rules||[]),...(r.exceptions||[]),...(r.acceptance||[]),...['common','backend','frontend'].flatMap(role=>['rules','exceptions','acceptance'].flatMap(key=>r[role]?.[key]||[])),...(r.cases||[]).map(c=>[c.name,c.precondition,...(c.steps||[]),c.expected].join(' ')),...(r.development||[])].join(' ').toLowerCase().includes(q);}
+function filteredRequirements(){const q=$('search').value.trim().toLowerCase();return scopedRequirements().filter(r=>matchesSearch(r,q));}
+function pushHash(hash){if(location.hash!==hash)history.pushState(null,'',hash);}
+function renderNav(){const items=[{id:'all',name:'全部端'},...reviewData.ends];$('end-nav').innerHTML=items.map(e=>`<button type="button" data-end="${esc(e.id)}" aria-pressed="${!documentState.on&&currentEnd===e.id}">${esc(e.name)}</button>`).join('')+`<button type="button" id="document-tab" aria-pressed="${documentState.on}">Markdown 文档</button>`;const pages=reviewData.pages.filter(p=>currentEnd==='all'||p.end===currentEnd);$('page-filter').innerHTML='<option value="all">全部页面</option>'+pages.map(p=>`<option value="${esc(p.id)}">${esc(currentEnd==='all'?endName(p.end)+' · ':'')}${esc(p.name)}</option>`).join('');$('page-filter').value=currentPage;}
+function renderCanvas(){
+ const scroll=$('canvas').scrollTop;
+ const pages=reviewData.pages.filter(p=>(currentEnd==='all'||p.end===currentEnd)&&(currentPage==='all'||p.id===currentPage));
+ $('canvas').innerHTML=`<div class="rv-intro"><div><h2>${currentEnd==='all'?'全端功能评审':esc(endName(currentEnd))+' · 功能原型'}</h2><div class="rv-sub">操作按钮体验流程，点击橙色标注查阅需求</div></div><span class="rv-pill">${pages.length} 个页面分组</span></div>`+pages.map(p=>`<section class="rv-section" id="page-${esc(p.id)}"><div class="rv-section-title"><span class="rv-square">${reviewData.pages.indexOf(p)+1}</span>${esc(endName(p.end))} · ${esc(p.name)}<span class="rv-path">${esc(p.path)}</span></div><div class="rv-stage ${reviewData.ends.find(e=>e.id===p.end)?.device==='mobile'?'mobile':''}">${pageMarkup[p.id]()}</div></section>`).join('');
+ $('canvas').querySelectorAll('[data-req]').forEach(el=>{const r=reqById(el.dataset.req);if(!r)return;const marker=document.createElement('button');marker.type='button';marker.className='rv-marker';marker.textContent=String(reviewData.requirements.indexOf(r)+1);marker.setAttribute('aria-label','查看需求：'+r.title);marker.title='查看需求：'+r.title;el.append(marker);});
+ $('canvas').scrollTop=scroll;highlight();
+}
+function roleSections(r){
+ const legacy=r.legacyUnclassified??!(r.common||r.backend||r.frontend);
+ const section=(name,part,role)=>{
+  if(!part)return '';
+  const body=[['rules','规则'],['exceptions','异常与边界'],['acceptance','关键验证']].filter(([key])=>part[key]?.length).map(([key,label])=>'<h3>'+label+'</h3>'+list(part[key])).join('');
+  if(!body)return '';
+  const open=role==='common'||lens==='all'||lens==='qa'||(role==='backend'&&lens==='dev')||role===lens;
+  return '<details class="rv-role" '+(open?'open':'')+'><summary>'+name+'</summary>'+body+'</details>';
+ };
+ return section(legacy?'旧格式未分类，需结合全文确认':'共用规则',r,'common')+section('共用规则',r.common,'common')+section('后端功能规则',r.backend,'backend')+section('前端 UI 与交互',r.frontend,'frontend');
+}
+function list(values){return `<ul>${values.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>`;}
+function casesMarkup(r){return (r.cases||[]).length?`<div class="rv-cases">${r.cases.map(c=>`<div class="rv-case"><b>${esc(c.name)}</b><p>前置条件：${esc(c.precondition||'无额外条件')}</p><p>操作步骤</p><ol>${(c.steps||[]).map(s=>`<li>${esc(s)}</li>`).join('')}</ol><p>预期结果：${esc(c.expected)}</p></div>`).join('')}</div>`:'';}
+function renderDocs(){
+ const scroll=$('doc-body').scrollTop,rows=filteredRequirements();
+ const lensNote=lens==='qa'?'测试查阅：展开关键验证与场景。':lens==='dev'?'后端规则：展开业务内容，前端 UI 可按需展开。':lens==='frontend'?'前端 UI：展开界面交互，后端规则可按需展开。':'完整需求：公共说明、后端规则与前端 UI 分组查阅。';
+ $('requirements').innerHTML=`<p class="rv-lens-note">${lensNote}</p>`+(rows.length?rows.map(r=>`<article class="rv-rule" id="req-${esc(r.id)}" data-doc="${esc(r.id)}"><h3 class="rv-rule-title"><span class="rv-rule-number">${reviewData.requirements.indexOf(r)+1}</span>${esc(r.title)}</h3><div class="rv-rule-meta">${esc(endName(r.end))} / ${esc(pageName(r.page))}</div><p>${esc(r.summary)}</p><div class="rv-rule-sections">${roleSections(r)}${r.cases?.length?`<details class="rv-acceptance" ${lens==='qa'?'open':''}><summary>验证场景（${r.cases.length}）</summary>${casesMarkup(r)}</details>`:''}${r.development?.length?`<details class="rv-development" ${lens==='dev'?'open':''}><summary>研发说明</summary>${list(r.development)}</details>`:''}</div>${r.locatable===false?'<div class="rv-rule-footer"><span class="rv-no-target">全局规则 · 无独立界面</span></div>':''}</article>`).join(''):'<div class="rv-empty">未找到匹配需求。<br><button type="button" data-clear>清除关键词</button></div>');
+ $('shared').innerHTML=reviewData.shared.filter(s=>currentEnd==='all'||s.ends.includes(currentEnd)).map(s=>`<details class="rv-shared" open><summary>${esc(s.title)}</summary><p>${esc(s.text)}</p></details>`).join('');
+ $('doc-body').scrollTop=scroll;updateNavigation();highlight();
+}
+function updateNavigation(){
+ const rows=filteredRequirements(),index=rows.findIndex(r=>r.id===selectedId);
+ $('doc-count').textContent=`${rows.length} / ${scopedRequirements().length} 条${index>=0?' · 当前 '+(index+1):''}`;
+ $('req-jump').innerHTML='<option value="">跳转到需求…</option>'+rows.map(r=>`<option value="${esc(r.id)}">${esc(r.title)}</option>`).join('');$('req-jump').value=index>=0?selectedId:'';
+ $('prev-req').disabled=!rows.length||index===0;$('next-req').disabled=!rows.length||index===rows.length-1;
+ const r=reqById(selectedId);$('review-context').textContent=r?endName(r.end)+' / '+pageName(r.page)+' / '+r.title:'点击原型标注查看对应需求；目录与翻阅仅用于文档查阅。';
+}
+function highlight(){document.querySelectorAll('[data-req]').forEach(el=>{el.classList.toggle('rv-selected',el.dataset.req===selectedId);el.classList.toggle('rv-hover',el.dataset.req===hoverId);});document.querySelectorAll('[data-doc]').forEach(el=>{el.classList.toggle('selected',el.dataset.doc===selectedId);el.classList.toggle('rv-hover',el.dataset.doc===hoverId);});scheduleLine();}
+function setView(value){view=value;document.body.classList.toggle('rv-prototype-only',view==='prototype');document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===view));scheduleLine();}
+function setScope(end,page,{push=true}={}){currentEnd=end;currentPage=page;selectedId='';hoverId='';$('search').value='';if(push)pushHash('#end='+encodeURIComponent(end)+(page==='all'?'':'&page='+encodeURIComponent(page)));renderNav();renderCanvas();renderDocs();$('canvas').scrollTop=0;$('doc-body').scrollTop=0;}
+// 项目适配入口：仅在直接打开已有需求地址时进入必要状态。普通业务操作不会调用这里。
+async function activateRequirement(req){if(req.state==='assign'&&!demo.editing)openTownPicker('user');}
+function scrollTarget(container,target){if(!target)return;if(narrow()){target.scrollIntoView({behavior:motion(),block:'center'});return;}const rect=target.getBoundingClientRect(),bounds=container.getBoundingClientRect();container.scrollTo({top:container.scrollTop+rect.top-bounds.top-Math.max(16,(bounds.height-Math.min(rect.height,bounds.height-32))/2),behavior:motion()});}
+function hotspotFor(id){return [...$('canvas').querySelectorAll('[data-req]')].find(el=>el.dataset.req===id);}
+async function choose(id,source,{push=true,keepSearch=false}={}){
+ const r=reqById(id);if(!r)return notify('未找到对应需求，请从端导航重新选择。');
+ let rerender=false;if(currentEnd!=='all'&&currentEnd!==r.end){currentEnd=r.end;rerender=true;}if(currentPage!=='all'&&currentPage!==r.page){currentPage=r.page;rerender=true;}
+ if(rerender){renderNav();renderCanvas();}if(!keepSearch&&$('search').value){$('search').value='';renderDocs();}
+ if(!document.getElementById('req-'+id))renderDocs();selectedId=id;hoverId='';
+ if(source==='link'&&r.locatable!==false){if(view==='prototype')setView('review');await activateRequirement(r);}
+ const card=document.getElementById('req-'+id);card?.querySelector('.rv-acceptance')?.setAttribute('open','');highlight();updateNavigation();if(push)pushHash('#req='+encodeURIComponent(id));
+ if(source==='link'&&r.locatable!==false){const target=hotspotFor(id);if(target)scrollTarget($('canvas'),target);else notify('该需求暂未提供可定位界面，请查阅右侧规则。');}
+ if(source==='canvas'||source==='navigate'||source==='link'&&!narrow())scrollTarget($('doc-body'),card);
+ scheduleLine();
+}
+async function applyHash(){const params=new URLSearchParams(location.hash.slice(1));if(params.has('document')){enterDocument(params.get('document'),{push:false});return;}if(documentState.on)showReviewDocument(false);if(params.has('req')){const r=reqById(params.get('req'));if(!r){notify('此需求链接已失效，可从端导航查看现有需求。');return;}currentEnd=r.end;currentPage=r.page;$('search').value='';renderNav();renderCanvas();renderDocs();await choose(r.id,'link',{push:false});}else if(params.has('end')){const end=params.get('end'),page=params.get('page')||'all';if((end==='all'||reviewData.ends.some(e=>e.id===end))&&(page==='all'||reviewData.pages.some(p=>p.id===page&&(end==='all'||p.end===end))))setScope(end,page,{push:false});else notify('此端或页面不存在，已保留当前评审页。');}else setScope('admin','applications',{push:false});}
+function setHover(id){if(hoverId===id)return;hoverId=id;highlight();}
+function bindHover(container,attribute){container.addEventListener('pointerover',e=>{const hot=e.target.closest('['+attribute+']');if(hot)setHover(hot.getAttribute(attribute));});container.addEventListener('pointerout',e=>{const hot=e.target.closest('['+attribute+']');if(hot&&!hot.contains(e.relatedTarget))setHover('');});container.addEventListener('focusin',e=>{const hot=e.target.closest('['+attribute+']');if(hot)setHover(hot.getAttribute(attribute));});container.addEventListener('focusout',e=>{if(!container.contains(e.relatedTarget))setHover('');});}
+function scheduleLine(){if(lineFrame)return;lineFrame=requestAnimationFrame(()=>{lineFrame=0;drawLine();});}
+function visibleIn(el,panel){const r=el.getBoundingClientRect(),p=panel.getBoundingClientRect();return r.width>0&&r.height>0&&r.right>p.left&&r.left<p.right&&r.bottom>p.top&&r.top<p.bottom;}
+function drawLine(){
+ const svg=$('review-lines');svg.style.display='none';if(documentState.on||narrow()||view!=='review'||!$('lines').checked)return;
+ const id=hoverId||selectedId;if(!id)return;const card=document.getElementById('req-'+id),target=[...$('canvas').querySelectorAll('[data-req]')].find(el=>el.dataset.req===id&&visibleIn(el,$('canvas')));if(!card||!target||!visibleIn(card,$('doc-body')))return;
+ const a=target.getBoundingClientRect(),b=card.getBoundingClientRect(),ca=$('canvas').getBoundingClientRect(),cb=$('doc-body').getBoundingClientRect();const x1=Math.min(a.right,ca.right-4),y1=Math.max(ca.top+8,Math.min(ca.bottom-8,a.top+a.height/2)),x2=b.left,y2=Math.max(cb.top+8,Math.min(cb.bottom-8,b.top+Math.min(b.height/2,70))),dx=Math.max(35,(x2-x1)/2);
+ svg.querySelector('path').setAttribute('d',`M${x1},${y1} C${x1+dx},${y1} ${x2-dx},${y2} ${x2},${y2}`);const dots=svg.querySelectorAll('circle');dots[0].setAttribute('cx',x1);dots[0].setAttribute('cy',y1);dots[1].setAttribute('cx',x2);dots[1].setAttribute('cy',y2);svg.style.display='block';
+}
+function adjustWidth(width){const max=Math.max(340,Math.min(680,window.innerWidth-420));const actual=Math.min(max,Math.max(340,width));$('workspace').style.setProperty('--rv-doc-width',actual+'px');$('splitter').setAttribute('aria-valuemax',max);$('splitter').setAttribute('aria-valuenow',Math.round(actual));scheduleLine();}
+$('splitter').addEventListener('pointerdown',e=>{if(e.button!==0)return;e.preventDefault();$('splitter').setPointerCapture(e.pointerId);document.body.classList.add('rv-resizing');});
+$('splitter').addEventListener('pointermove',e=>{if($('splitter').hasPointerCapture(e.pointerId))adjustWidth(window.innerWidth-e.clientX);});
+function stopResize(){document.body.classList.remove('rv-resizing');}
+$('splitter').addEventListener('pointerup',stopResize);$('splitter').addEventListener('lostpointercapture',stopResize);$('splitter').addEventListener('dblclick',()=>adjustWidth(440));
+$('splitter').addEventListener('keydown',e=>{const width=Number($('splitter').getAttribute('aria-valuenow'));if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();adjustWidth(width+(e.key==='ArrowLeft'?20:-20));}if(e.key==='Home'){e.preventDefault();adjustWidth(440);}});
+document.title=reviewData.title;
+$('review-title').textContent=reviewData.title;$('review-sub').textContent=reviewData.version+' · 点击原型查阅需求 · 支持研发与测试查阅';
+$('end-nav').addEventListener('click',e=>{if(e.target.closest('#document-tab')){enterDocument();return;}const b=e.target.closest('[data-end]');if(b){if(documentState.on)showReviewDocument(false);setScope(b.dataset.end,'all');}});
+$('page-filter').addEventListener('change',e=>setScope(currentEnd,e.target.value));
+$('search').addEventListener('input',renderDocs);$('clear-search').addEventListener('click',()=>{$('search').value='';renderDocs();$('search').focus();});
+$('markers').addEventListener('change',e=>{document.body.classList.toggle('rv-no-markers',!e.target.checked);scheduleLine();});$('lines').addEventListener('change',scheduleLine);
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));
+document.querySelectorAll('[data-lens]').forEach(b=>b.addEventListener('click',()=>{lens=b.dataset.lens;document.body.classList.remove('rv-lens-qa','rv-lens-dev','rv-lens-frontend');if(lens!=='all')document.body.classList.add('rv-lens-'+lens);document.querySelectorAll('[data-lens]').forEach(btn=>btn.setAttribute('aria-pressed',btn===b));renderDocs();}));
+$('req-jump').addEventListener('change',e=>{if(e.target.value)choose(e.target.value,'navigate',{keepSearch:true});});
+function stepRequirement(delta){const rows=filteredRequirements(),index=rows.findIndex(r=>r.id===selectedId),next=index<0?(delta>0?0:rows.length-1):index+delta;if(rows[next])choose(rows[next].id,'navigate',{keepSearch:true});}
+$('prev-req').addEventListener('click',()=>stepRequirement(-1));$('next-req').addEventListener('click',()=>stepRequirement(1));
+$('requirements').addEventListener('click',e=>{if(e.target.closest('[data-clear]')){$('search').value='';renderDocs();}});
+// 标注只查说明，不触发所在业务操作。业务按钮／输入框仍只执行本身操作，点击空白热点可定位需求。
+$('canvas').addEventListener('click',e=>{
+ const marker=e.target.closest('.rv-marker');if(marker){e.preventDefault();e.stopPropagation();choose(marker.closest('[data-req]').dataset.req,'canvas');return;}
+ const hot=e.target.closest('[data-req]'),interactive=e.target.closest('button,input,select,textarea,label,a,[role="button"],[contenteditable="true"]');if(view==='review'&&hot&&!interactive)choose(hot.dataset.req,'canvas');
+},true);
+function townReviewAllowed(id){if(getRider(id).town!==demo.opTown){notify('骑手小镇归属变更，请刷新后重试');return false;}return true;}
+function refreshOperator(end){const rows=structuredClone(demo.rows.filter(r=>r.id!=='active'&&r.town===demo.opTown));if(end==='operator-app')demo.opAPP=rows;else demo.opPC=rows;demo.review=null;renderCanvas();notify('已刷新本镇列表');}
+$('canvas').addEventListener('input',e=>{if(e.target.dataset.business==='query')demo.query=e.target.value;if(e.target.dataset.business==='town-search')demo.townQuery=e.target.value;});
+$('canvas').addEventListener('change',e=>{if(e.target.dataset.business==='source')demo.source=e.target.value;if(e.target.dataset.business==='status')demo.status=e.target.value;if(e.target.dataset.business==='town-page-size'){demo.townPageSize=Number(e.target.value);demo.townPage=1;renderCanvas();}});
+$('canvas').addEventListener('keydown',e=>{if(e.target.dataset.business==='town-search'&&e.key==='Enter'){e.preventDefault();demo.townFilter=demo.townQuery.trim();demo.townPage=1;renderCanvas();}});
+$('canvas').addEventListener('click',e=>{
+ if(e.target.closest('.rv-marker'))return;
+ const b=e.target.closest('[data-action]');if(!b||b.disabled)return;
+ switch(b.dataset.action){
+ case 'assign':if(!assignAllowed(getRider(b.dataset.id))&&getRider(b.dataset.id).status!=='审核通过')break;openTownPicker(b.dataset.id);break;
+ case 'assign-cancel':demo.editing='';demo.draft='';demo.townConfirm=false;renderCanvas();break;
+ case 'town-query':demo.townFilter=demo.townQuery.trim();demo.townPage=1;renderCanvas();break;
+ case 'town-reset':demo.townQuery='';demo.townFilter='';demo.townPage=1;renderCanvas();break;
+ case 'town-page':demo.townPage=Number(b.dataset.page);renderCanvas();break;
+ case 'town-select':{const selected=towns.find(t=>String(t.id)===b.dataset.townId);if(!selected)break;demo.draft=selected.name;demo.townConfirm=true;renderCanvas();break;}
+ case 'town-confirm-cancel':demo.townConfirm=false;demo.draft='';renderCanvas();break;
+ case 'town-confirm':if(!demo.townConfirm||!towns.some(t=>t.name===demo.draft))break;getRider(demo.editing).town=demo.draft;demo.editing='';demo.draft='';demo.townConfirm=false;renderCanvas();notify('操作成功');break;
+ case 'admin-page':demo.editing='';demo.query='';demo.source='全部';demo.status='全部';setScope('admin',b.dataset.page);break;
+ case 'admin-close':if(!canCloseUnqualified(getRider(b.dataset.id)))break;demo.closingId=b.dataset.id;renderCanvas();break;
+ case 'admin-close-cancel':demo.closingId='';renderCanvas();break;
+ case 'admin-close-confirm':{const rider=getRider(demo.closingId);if(!rider||!canCloseUnqualified(rider))break;demo.rows=demo.rows.filter(r=>r.id!==demo.closingId);demo.closingId='';demo.reapplyAllowed=true;renderCanvas();notify('注销成功');break;}
+ case 'demo-reapply':if(!demo.reapplyAllowed)break;demo.rows.push(structuredClone(riderSeed.find(r=>r.id==='unqualified')));demo.reapplyAllowed=false;renderCanvas();notify('重新申请成功（模拟）');break;
+ case 'admin-query':renderCanvas();break;
+ case 'admin-reset':demo.query='';demo.source='全部';demo.status='全部';renderCanvas();break;
+ case 'review-open':if(!townReviewAllowed(b.dataset.id))break;demo.review={id:b.dataset.id,end:b.dataset.end,result:b.dataset.result};renderCanvas();break;
+ case 'review-cancel':demo.review=null;renderCanvas();break;
+ case 'review-submit':if(!demo.review||!townReviewAllowed(demo.review.id))break;getRider(demo.review.id).status=demo.review.result;refreshOperator(demo.review.end);notify('审核结果已提交（演示）');break;
+ case 'operator-refresh':refreshOperator(b.dataset.end);break;
+ case 'account-close':if(getRider('active').town!==demo.sessionTown){demo.closeNotice='骑手归属变更，请刷新后重试';renderCanvas();notify('骑手归属变更，请刷新后重试');}else{demo.closeNotice='归属校验通过，继续原注销流程（原流程未在本原型展开）';renderCanvas();notify('归属校验通过，继续原注销流程');}break;
+ case 'account-refresh':demo.sessionTown=getRider('active').town;demo.closeNotice='';renderCanvas();notify('已刷新归属');break;
+ case 'original-withdraw':notify('撤回申请沿用原流程，本次原型未展开');break;
+ case 'original-logout':notify('退出登录沿用原流程，本次原型未展开');break;
+ }
+});
+
+bindHover($('canvas'),'data-req');bindHover($('requirements'),'data-doc');
+document.addEventListener('keydown',e=>{if(e.key==='/'&&!e.ctrlKey&&!e.metaKey&&!e.altKey&&!e.target.closest('input,textarea,select,[contenteditable="true"]')){e.preventDefault();if(documentState.on)$('md-search').focus();else{setView('review');$('search').focus();if(narrow())$('search').scrollIntoView({block:'center'});}}if(e.key==='Escape'&&e.target===$('search')){$('search').value='';renderDocs();$('search').blur();}});
+$('reset').addEventListener('click',()=>{resetRiderDemo();setScope('admin','applications');notify('演示已重置');});
+document.addEventListener('scroll',scheduleLine,true);document.addEventListener('toggle',scheduleLine,true);window.addEventListener('resize',()=>{adjustWidth(Number($('splitter').getAttribute('aria-valuenow')));scheduleLine();});new ResizeObserver(scheduleLine).observe($('workspace'));
+window.addEventListener('hashchange',applyHash);window.addEventListener('popstate',applyHash);
+bindDocumentControls();renderNav();renderCanvas();renderDocs();adjustWidth(440);applyHash();
+
+</script>
+</body>
+</html>
