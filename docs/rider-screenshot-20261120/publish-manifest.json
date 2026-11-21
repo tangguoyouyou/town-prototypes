@@ -1,0 +1,24 @@
+{
+  "name": "骑手APP截图附加信息",
+  "source_identity": "骑手APP截图附加信息_2026-11-20",
+  "version": "V1.0 · 本地评审稿",
+  "slug": "rider-screenshot-20261120",
+  "mode": "read-only",
+  "files_sha256": {
+    "index.html": "fc6c912cbe3bf7a96b09a10ebe2886e5e3ee2ad8b5b830118fed12efbf05a48f",
+    "prototype.html": "1cc5b856b4cc2af78454bb754955ca10b6c4297e3bf8a91e4bf790665660a252",
+    "骑手APP截图附加信息_PRD_V1.0.md": "b60c69f1be8942b054a8f70e288609121362d5156f921f85ab1c2d89a8e0425d"
+  },
+  "source_files_sha256": {
+    "需求源.json": "858e7a05158fd057c7837ad6477fcc61e99abee6fd61381f6ac253f447de04fb",
+    "业务交互.js": "4568175142d629fd1ee54d07b9e14847874088508b3faf3fa709c2e8ab5455c8",
+    "分享演示.js": "efc57724866d56a7d0adc7ad71756def71836bb18a5bda62b651bc84fbadb917",
+    "业务样式.css": "33a18db2e4e79ed9b6a0b92f5c5f6e06f0277888f9ba35baf57a013365cfe84e",
+    "分享演示.css": "63c2af581090b563f82a0111a0964df472d8a73bd5f35b276f0e1bc3d7d509cc",
+    "操作演示模板.html": "7a68923a2b839491fceda27ca9811af1919ba597bb07b362f3b17ee57072e4cd",
+    "评审模板.html": "bcd7c44c2699b7b9e21400b41d3a50b1980f291d0198af6f30dd340b82bfe12f",
+    "build.mjs": "bf228917ffc31ea890170730abbb621ea7f8f31404b5ef1ba35063b0aa29f1dc",
+    "tools/publish_readonly.mjs": "fc65609f6da85f99585bf4e43af2604f6f5807140facc6dcbaab973064a7b55a",
+    "tools/local-editor/review_build.mjs": "b1e39ef09ac72ed80758fe82bdf1ea30914dccb33f1ef64281b01055b7214b76"
+  }
+}
