@@ -3156,7 +3156,15 @@ function templatesPage(){return shell('templates',`<div class="biz-template-deta
 const taskStateStyle={'已成功':['success','✓','处理完成'],'部分完成':['partial','!','存在失败项'],'待处理':['pending','◷','等待处理'],'失败':['failed','×','全部项失败'],'处理中':['processing','↻','正在处理']};
 function taskStatusMarkup(status){const [kind,icon]=taskStateStyle[status]||taskStateStyle['待处理'];return `<span class="biz-task-status ${kind}"><i aria-hidden="true">${icon}</i>${esc(status)}</span>`;}
 function taskCanRetry(t){return ['部分完成','失败'].includes(t.status)&&t.items.some(i=>i.state==='失败'&&i.key!=='none');}
-function statusSamples(){if(B.statusSamples)return B.statusSamples;return B.statusSamples=['已成功','部分完成','待处理','失败','处理中'].map((status,index)=>{const states=status==='部分完成'?['成功','失败']:status==='已成功'?['成功','跳过']:[status==='失败'?'失败':status,status==='失败'?'失败':status];return {demo:true,id:'DEMO-'+(index+1),seq:0,type:'更新商品信息',kind:'sync',price:false,sale:false,productIds:[B.products[0].id],storeIds:['S101','S102'],time:'2026-11-16 10:00:00',status,items:states.map((state,i)=>({store:i?'S102':'S101',key:B.products[0].id,publicId:B.products[0].id,name:B.products[0].name,uid:(i?'S102':'S101')+':'+B.products[0].id,state,time:'2026-11-16 10:00:00',reason:state==='失败'?'门店商品参与活动，暂不可操作':state==='跳过'?'相同公共ID已存在':'',attempts:state==='待处理'?[]:[{state}]}))};});}
+function statusSamples(){
+ if(B.statusSamples)return B.statusSamples;
+ // 状态演示使用独立快照，不依赖公共库商品，也不向公共库或实际任务列表写入数据。
+ const sample={id:'DEMO-P001',name:'任务状态示例商品'};
+ return B.statusSamples=['已成功','部分完成','待处理','失败','处理中'].map((status,index)=>{
+  const states=status==='部分完成'?['成功','失败']:status==='已成功'?['成功','跳过']:[status==='失败'?'失败':status,status==='失败'?'失败':status];
+  return {demo:true,id:'DEMO-'+(index+1),seq:0,type:'更新商品信息',kind:'sync',price:false,sale:false,productIds:[sample.id],storeIds:['S101','S102'],time:'2026-11-16 10:00:00',status,items:states.map((state,i)=>({store:i?'S102':'S101',key:sample.id,publicId:sample.id,name:sample.name,uid:(i?'S102':'S101')+':'+sample.id,state,time:'2026-11-16 10:00:00',reason:state==='失败'?'门店商品参与活动，暂不可操作':state==='跳过'?'相同公共ID已存在':'',attempts:state==='待处理'?[]:[{state}]}))};
+ });
+}
 function findTask(id){return B.tasks.find(t=>t.id===id)||(B.statusSamples||[]).find(t=>t.id===id);}
 function tasksPage(){const tasks=B.taskDemo?statusSamples():B.tasks;return shell('tasks',`<div class="biz-heading"><div><h2>商品任务记录</h2><p>任务 → 目标门店 → 失败商品，保留执行范围与字段快照</p></div></div><div class="biz-task-demo-nav">${btn(B.taskDemo?'返回任务记录':'查看五种状态示例','toggle-task-demo','','link')}<span>仅原型演示显示，实际UI界面不显示</span></div>`+hot('PUB-TASK-001',table(['任务ID','任务类型','目标门店数','提交时间','状态','操作'],tasks.map(t=>`<tr data-task-id="${t.id}"><td><code>${t.id}</code></td><td>${esc(t.type)}</td><td>${t.storeIds.length}</td><td>${t.time}</td><td>${taskStatusMarkup(t.status)}</td><td>${btn('详情','task-detail',`data-id="${t.id}"`,'link')}${taskCanRetry(t)?btn('重新执行','retry-task',`data-id="${t.id}"`,'link'):''}</td></tr>`),'暂无数据'))+hot('PUB-TASK-002','<p class="biz-info">同步中禁止编辑、删除商品信息、分类、属性、小料和推荐标签。仅重试失败项；商品或关联资料变更时，提示“商品信息已变更，请重新同步”。</p>'));}
 function taskEligibleStore(s){return !!s&&s.chainId===B.chainId&&s.linked===true&&s.canManage===true&&s.operating===true&&!s.deleted&&!s.disabled;}
