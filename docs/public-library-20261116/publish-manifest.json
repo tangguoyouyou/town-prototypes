@@ -5,12 +5,12 @@
   "mode": "read-only",
   "slug": "public-library-20261116",
   "files_sha256": {
-    "index.html": "94b62c8597bdd17144b6dd36cbd7a0f3c641d1cbcad71c2b11c7f573dcb62578",
-    "商品公共库与基础资料公共ID_PRD_V1.0.md": "7c90e126ff35eb22e7651db7e6421292627f6d116c2647edc418b093fc831f1b",
-    "商品公共库与基础资料公共ID_联动评审.html": "94b62c8597bdd17144b6dd36cbd7a0f3c641d1cbcad71c2b11c7f573dcb62578"
+    "index.html": "a3412f401761a763262d37b457156ca9d7edaa053b08ef05d90bf4e2fe596a65",
+    "商品公共库与基础资料公共ID_PRD_V1.0.md": "74ae0534f1aa08171ad885f1b3d2b0decbe9e65bb44a9e649f86b1937fcd3a8f",
+    "商品公共库与基础资料公共ID_联动评审.html": "a3412f401761a763262d37b457156ca9d7edaa053b08ef05d90bf4e2fe596a65"
   },
   "source_files_sha256": {
-    "需求源.json": "916c8e9f28eea777254bcceac6cc0b8a7ea6e98e6115b7e6240f9906c057d269",
+    "需求源.json": "d95a0ba5e94ec5e4ab01305eea656bc8a41d82ab5914a5d8162241650afb0b42",
     "评审模板.html": "39e2551ffb7ae305eb706dad70258dee3e06d6c5a8ca37a369c804c43668ec30",
     "build.mjs": "f1c9b65034f838f04343a19a6704fd5c8f57b344b22a31f1f33a8de6c7016bae",
     "tools/review_build.mjs": "da8d2933d3f3c7aa01bea969346e9b4f910efa40699801ebc4b41f797393339e",
