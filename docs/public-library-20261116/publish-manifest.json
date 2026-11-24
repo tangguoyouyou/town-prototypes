@@ -5,17 +5,17 @@
   "mode": "read-only",
   "slug": "public-library-20261116",
   "files_sha256": {
-    "index.html": "ad0582ed83a535687ed916367681221beca1f33f1c4fe2adcdf3f72c771bf97a",
-    "商品公共库与基础资料公共ID_PRD_V1.0.md": "6f4754f18eda498391e52a8c4d87af99b12805da24a5be1495f18b03783c3b06",
-    "商品公共库与基础资料公共ID_联动评审.html": "ad0582ed83a535687ed916367681221beca1f33f1c4fe2adcdf3f72c771bf97a"
+    "index.html": "a106dd39b31a8172c391a73666ac9faf2bcb5e814da04fb5c4ae75fff4ebc621",
+    "商品公共库与基础资料公共ID_PRD_V1.0.md": "65f4e83111299eed2208a7854b6ac3c9f340e684b0c83080ca25e54f4b52771f",
+    "商品公共库与基础资料公共ID_联动评审.html": "a106dd39b31a8172c391a73666ac9faf2bcb5e814da04fb5c4ae75fff4ebc621"
   },
   "source_files_sha256": {
-    "需求源.json": "8068b61bcfcbf1b8c019c1fcffc7715b07f660015f8fe492429d47e2be8af11b",
+    "需求源.json": "06a1f8125fbe7b83b133f7860de04346b1850184e36d6f4b97404c1b68456231",
     "评审模板.html": "39e2551ffb7ae305eb706dad70258dee3e06d6c5a8ca37a369c804c43668ec30",
     "build.mjs": "f1c9b65034f838f04343a19a6704fd5c8f57b344b22a31f1f33a8de6c7016bae",
     "tools/review_build.mjs": "da8d2933d3f3c7aa01bea969346e9b4f910efa40699801ebc4b41f797393339e",
     "tools/requirement_ids.json": "00ffbb288a148971f6ad0ab218a5be7cf85d1f3df2b4b613f521917265f3e804",
-    "business.js": "38d6c98781a7df8ec787799612e0a7acdf7214c310e0e077a7be61fec73944ec",
+    "business.js": "dd7f438daa2334ca8f0fe6f06fd7862025252bb4a2cdc9881a1aee49270def76",
     "attributes.js": "f6ffd2aba97143dc64d3ed8ba3a5f875235fb9f923c69392a4823d7b1f8e800a",
     "quick_import.js": "6798595f5a21459679021205089ba6e9e6ee67bf66b42b9ba24eb0a9a41bd10f",
     "addons_store.js": "2b3c6705bb2957ba591dbb2dbcd26a663a84600546dd2f44cc68a495ebf1fe83",
