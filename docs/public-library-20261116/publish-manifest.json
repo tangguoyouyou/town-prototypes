@@ -5,23 +5,23 @@
   "mode": "read-only",
   "slug": "public-library-20261116",
   "files_sha256": {
-    "index.html": "b287ada8f3cd90ba14efd0702f5bd5e3105c7711f05dd00740da2e6e899781bc",
-    "商品公共库与基础资料公共ID_PRD_V1.0.md": "6a27e41060f421c97a03eb28fc8782b618fe5bb879a159e1293cc7469e2ee95f",
-    "商品公共库与基础资料公共ID_联动评审.html": "b287ada8f3cd90ba14efd0702f5bd5e3105c7711f05dd00740da2e6e899781bc"
+    "index.html": "43419980241e8f640d0af75952aef1f82b23c0519f72f667924ebc33ebcb8c32",
+    "商品公共库与基础资料公共ID_PRD_V1.0.md": "458b5fd9e8114026fe2066f17e40e5767ff4a0fa11ccec6fcb90fb94a9a0e8c1",
+    "商品公共库与基础资料公共ID_联动评审.html": "43419980241e8f640d0af75952aef1f82b23c0519f72f667924ebc33ebcb8c32"
   },
   "source_files_sha256": {
-    "需求源.json": "f450f2506504f6abd8f5005b66c6646d7de8a585141ebbb65806ec48830c7de2",
-    "评审模板.html": "39e2551ffb7ae305eb706dad70258dee3e06d6c5a8ca37a369c804c43668ec30",
-    "build.mjs": "f1c9b65034f838f04343a19a6704fd5c8f57b344b22a31f1f33a8de6c7016bae",
+    "需求源.json": "6ea572e9c5b9a24b973c371d390bcc096c60055620cefca9f9bdb3f21c1271c0",
+    "评审模板.html": "bd38975032c8100051d40048202e63d28fa74860c8a673859d05dde0631c2790",
+    "build.mjs": "033a88968b34495f90ef558a9ce556573505b63af668f94bcc43ec2ee6349e83",
     "tools/review_build.mjs": "da8d2933d3f3c7aa01bea969346e9b4f910efa40699801ebc4b41f797393339e",
     "tools/requirement_ids.json": "00ffbb288a148971f6ad0ab218a5be7cf85d1f3df2b4b613f521917265f3e804",
-    "business.js": "4e1739aad216ba38419d600fcc4ec5bae9e64a97ee978bd96521e48a5be6855d",
+    "business.js": "6fdea0d409043e2c62dc6cecdb43119fc993967a142ac6992a1cf910a429fa25",
     "attributes.js": "f6ffd2aba97143dc64d3ed8ba3a5f875235fb9f923c69392a4823d7b1f8e800a",
     "quick_import.js": "6798595f5a21459679021205089ba6e9e6ee67bf66b42b9ba24eb0a9a41bd10f",
     "addons_store.js": "2b3c6705bb2957ba591dbb2dbcd26a663a84600546dd2f44cc68a495ebf1fe83",
     "open_platform.js": "364775c73e520b5c86cf8e1c70ea86d4c03a2496e8baa5e7c22e6f2051648db7",
     "tags.js": "4d3e566fa9b0b684e460c2d08c42b126e52c585b644b01c1563157cc50d5672e",
     "onboarding.js": "aa15061db9c11014dc60e1ec3bfdb74d7b3ccb24b07fb494ff8bc4a3b85d5339",
-    "business.css": "e8aa05954a96ceff0dcf32867efcc884b22e640681f79e938eca3e7c4d035dc8"
+    "business.css": "ef2001818b9e970a7d32ebe0142dd1814f0fc18f79566acf9c768185ab54e07c"
   }
 }
